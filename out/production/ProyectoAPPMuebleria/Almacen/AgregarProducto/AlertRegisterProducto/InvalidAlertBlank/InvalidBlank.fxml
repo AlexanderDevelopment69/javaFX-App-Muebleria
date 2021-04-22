@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="30.0" style="-fx-background-color: white;" stylesheets="@../../../../resources/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Almacen.AgregarProducto.AlertRegisterProducto.InvalidAlertBlank.InvalidBlankController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="169.0" prefWidth="323.0" style="-fx-background-color: white;">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../resources/Images/fail.gif" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Label styleClass="stylefont" text="Completar los espacios" textFill="#7f7f7f">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
+      </Label>
+      <JFXButton onAction="#onGoBack" prefHeight="39.0" prefWidth="161.0" style="-fx-background-color: #FF7D81; -fx-font-size: 16;" styleClass="stylefont" text="Volver" textFill="WHITE" />
+      <Label styleClass="stylefont" text="Vuelva a ingresar los datos por favor." />
+   </children>
+   <padding>
+      <Insets bottom="20.0" />
+   </padding>
+</VBox>

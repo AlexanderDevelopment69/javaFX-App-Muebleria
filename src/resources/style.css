@@ -1,0 +1,242 @@
+@font-face {
+
+    src: url('../resources/Fonts/Poppins-Light.otf');
+}
+
+@font-face {
+    src: url('../resources/Fonts/Poppins-Regular.otf');
+
+}
+/*PANTALLA PRINCIPAL -LOGIN*/
+.styleTitle{
+    -fx-font-family:"Poppins Regular";
+}
+.stylefont{
+    -fx-font-family: "Poppins Light";
+
+}
+
+
+.jfx-text-field {
+    -fx-prompt-text-fill: #989898;
+    -fx-font-family: "Poppins Light";
+}
+.jfx-combo-box {
+    -fx-prompt-text-fill: #989898;
+    -fx-font-family: "Poppins Light";
+}
+
+
+.label-password{
+    -fx-font-size: 15px;
+}
+.button-Iniciar{
+    -fx-background-radius: 0px;
+    -fx-background-color: #01C192 ;
+    -fx-font-size: 15;
+    -fx-font-family: "Poppins Light";
+}
+.button-registrarCuenta{
+    -fx-background-radius: 0px;
+    -fx-background-color: transparent;
+    -fx-font-size: 12;
+    -fx-font-family: "Poppins Light";
+    -fx-text-fill:white;
+
+}
+.button-registrarCuenta:hover{
+    -fx-background-radius: 0px;
+    -fx-background-color: transparent;
+    -fx-font-size: 12;
+    -fx-font-family: "Poppins Light";
+    -fx-text-fill:white;
+}
+
+
+
+/*-------------------------------------*/
+/* UI 13 pulgadas*/
+
+/*Dashboard Almacen*****************************8*/
+
+.buttonSimple13{
+    -fx-background-color: #00115C;
+    -fx-background-radius: 30px;
+    -fx-font-size: 12px;
+}
+.buttonSimple13:hover{
+    -fx-background-color: #282C34;
+    -fx-font-size: 12px;
+
+}
+.buttonSimpleNew13{
+    -fx-background-color: #01C192;
+    -fx-background-radius: 30px;
+    -fx-font-size: 12px;
+}
+
+
+
+/*-------------------------------------*/
+.hBoxButtonUsers:hover{
+    /*-fx-background-color:#01C192;*/
+    -fx-text-fill: black;
+    -fx-border-width: 4 0 0 0px;
+    -fx-border-color: #01C192;
+
+}
+.hBoxButtonUsers{
+    -fx-background-color: white;
+    -fx-background-radius: 0px;
+   -fx-text-fill: black;
+    -fx-font-size: 11px;
+}
+.panelGradiant{
+    -fx-background-color:white;
+
+}
+.vBoxButtonUsers:hover{
+    -fx-background-color:#01C192;
+    -fx-text-fill: white;
+
+}
+.vBoxButtonUsers{
+    -fx-background-color:#1A1F30  ;
+    -fx-background-radius: 3px;
+    -fx-font-size: 12px;
+    -fx-text-fill: white;
+
+}
+
+/*Dashboard Almacen*****************************8*/
+
+.buttoniniciar{
+    -fx-background-color: #00115C;
+    -fx-background-radius: 30px;
+    -fx-font-size: 13px;
+}
+.buttoniniciar:hover{
+    -fx-background-color: #282C34;
+    -fx-font-size: 13px;
+
+}
+
+
+/*---------------------------------------------------*/
+
+/*Diseño  de tabla de datos*/
+.tabledesing{
+
+    -fx-background-color: white;
+    -fx-font-size: 10;
+
+
+}
+.TableColumn{
+    -fx-background-color:  white;
+    -fx-text-fill: black;
+
+}
+
+.table-view .column-header-background .filler {
+    -fx-background-color:  white;
+}
+
+.table-view .cell{
+
+    -fx-background-color: white;
+}
+.table-view .scroll-bar * {
+    /*-fx-min-width: 0;*/
+    /*-fx-pref-width: 0;*/
+    /*-fx-max-width: 0;*/
+
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+}
+
+/*.TableColumn{*/
+/*    -fx-background-color:  #0E0642;*/
+/*    -fx-text-fill: white;*/
+
+/*}*/
+
+
+
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #D3D3D3;
+    -fx-background-radius: 5em;
+}
+
+.scroll-pane > .corner {
+    -fx-background-color: transparent;
+}
+
+
+
+.table-view .column-header .label {
+    -fx-text-fill : black;
+
+    -fx-padding : 8 5 8 5 ;
+
+}
+.table-column{
+    -fx-alignment: center;
+}
+
+.table-view .column-header .arrow, .table-view .column-header .sort-order-dot{
+    -fx-background-color : #997BFF;
+}
+
+.table-view{
+    -fx-selection-bar:#5900FF;
+
+}
+
+.imagenbackgroundradius{
+    -fx-background-radius: 40px;
+    -fx-border-radius: 40px;
+}
+
+/*---------------------------------------------------*/
+
+/*Registro de usuarios*/
+.button-User-Register{
+    -fx-background-radius: 0px;
+    -fx-background-color: #0E6CC2;
+    -fx-font-size: 15;
+    -fx-font-family: "Poppins Light";
+}
+.buttonbuscar{
+    -fx-background-color: #01C192;
+    -fx-background-radius: 30px;
+    -fx-font-size: 13px;
+}
+.buttonbuscar:hover{
+    -fx-background-color: #136CC1;
+    -fx-font-size: 13px;
+
+}

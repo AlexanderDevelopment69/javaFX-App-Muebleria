@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: transparent;" styleClass="stylefont" stylesheets="@../resources/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DashboardPrincipal.ControllerPrincipalMenu">
+   <left>
+      <AnchorPane prefHeight="700.0" style="-fx-background-color: #1A1F30;" BorderPane.alignment="CENTER">
+         <children>
+            <VBox layoutY="134.0" prefHeight="600.0" prefWidth="200.0">
+               <children>
+                  <JFXButton onMouseClicked="#Principal" prefHeight="47.0" prefWidth="220.0" styleClass="vBoxButtonUsers" text="Principal" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets bottom="40.0" />
+                     </VBox.margin>
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                  </JFXButton>
+                  <JFXButton onMouseClicked="#Administracion" prefHeight="47.0" prefWidth="220.0" styleClass="vBoxButtonUsers" text="Administracion" textFill="WHITE">
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                  </JFXButton>
+                  <JFXButton layoutX="60.0" layoutY="10.0" onMouseClicked="#Ventas" prefHeight="47.0" prefWidth="220.0" styleClass="vBoxButtonUsers" text="Ventas" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="57.0" onMouseClicked="#Almacen" prefHeight="47.0" prefWidth="220.0" styleClass="vBoxButtonUsers" text="Almacen" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.007633587786259542">
+                                 <color>
+                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                  </JFXButton>
+                  <JFXButton onMouseClicked="#Clientes" prefHeight="47.0" prefWidth="220.0" styleClass="vBoxButtonUsers" text="Clientes" textFill="WHITE">
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.007633587786259542">
+                                 <color>
+                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                  </JFXButton>
+                  <JFXButton layoutX="10.0" layoutY="239.0" onMouseClicked="#Proveedores" prefHeight="47.0" prefWidth="220.0" styleClass="vBoxButtonUsers" text="Proveedores" textFill="WHITE">
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.007633587786259542">
+                                 <color>
+                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                  </JFXButton>
+                  <JFXButton prefHeight="47.0" prefWidth="220.0" styleClass="vBoxButtonUsers" text="Configuracion" textFill="WHITE">
+                     <ripplerFill>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop>
+                                 <color>
+                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="0.007633587786259542">
+                                 <color>
+                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                 </color>
+                              </Stop>
+                              <Stop offset="1.0">
+                                 <color>
+                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                 </color>
+                              </Stop>
+                           </stops>
+                        </LinearGradient>
+                     </ripplerFill>
+                     <VBox.margin>
+                        <Insets top="20.0" />
+                     </VBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="btnSalir" layoutX="10.0" layoutY="199.0" onMouseClicked="#salir" prefHeight="47.0" prefWidth="160.0" style="-fx-background-color: #644EFF;" styleClass="vBoxButtonUsers" text="Salir" textFill="WHITE">
+                     <VBox.margin>
+                        <Insets left="20.0" top="90.0" />
+                     </VBox.margin>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </left>
+   <center>
+      <AnchorPane fx:id="stackPrincipal" prefHeight="600.0" style="-fx-background-color: #F7F8FC;" BorderPane.alignment="CENTER">
+         <children>
+            <StackPane prefHeight="50.0" prefWidth="880.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+            <Pane />
+            <Label layoutX="57.0" layoutY="84.0" prefHeight="17.0" prefWidth="239.0" styleClass="stylefont" text="Hola, aquí podrá registrar los productos" />
+            <StackPane layoutX="57.0" layoutY="176.0" prefHeight="278.0" prefWidth="358.0">
+               <children>
+                  <Pane prefHeight="301.0" prefWidth="415.0" style="-fx-background-color: white;" />
+               </children>
+            </StackPane>
+            <StackPane layoutX="470.0" layoutY="184.0" prefHeight="278.0" prefWidth="407.0" style="-fx-background-color: yellow;">
+               <children>
+                  <Pane prefHeight="50.0" prefWidth="90.0" style="-fx-background-color: white;" />
+               </children>
+            </StackPane>
+            <StackPane layoutX="57.0" layoutY="480.0" prefHeight="174.0" prefWidth="875.0" style="-fx-background-color: yellow;">
+               <children>
+                  <Pane prefHeight="50.0" prefWidth="90.0" style="-fx-background-color: white;" />
+               </children>
+            </StackPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>

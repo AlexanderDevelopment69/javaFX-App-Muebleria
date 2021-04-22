@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../resources/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Almacen.AgregarProducto.ControllerRegisterProducto">
+   <center>
+      <StackPane fx:id="n" style="-fx-background-color: #F7F8FC;" BorderPane.alignment="CENTER">
+         <children>
+            <Pane prefHeight="830.0" prefWidth="1500.0">
+               <children>
+                  <Label layoutX="43.0" layoutY="36.0" prefHeight="17.0" prefWidth="239.0" styleClass="stylefont" text="Hola, aquí podrá registrar los productos" />
+                  <Label layoutX="40.0" layoutY="83.0" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+                  <JFXTextField fx:id="id" focusColor="WHITE" labelFloat="true" layoutX="81.0" layoutY="92.0" opacity="0.8" prefHeight="34.0" prefWidth="197.0" promptText="Codigo de producto" unFocusColor="WHITE" />
+                  <Label layoutX="40.0" layoutY="154.0" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+                  <JFXTextField fx:id="producto" focusColor="WHITE" labelFloat="true" layoutX="81.0" layoutY="163.0" opacity="0.8" prefHeight="34.0" prefWidth="197.0" promptText="Producto" unFocusColor="WHITE" />
+                  <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="59.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="40.0" layoutY="225.0" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+                  <JFXTextField fx:id="marca" focusColor="WHITE" labelFloat="true" layoutX="81.0" layoutY="234.0" opacity="0.8" prefHeight="34.0" prefWidth="197.0" promptText="Marca" unFocusColor="WHITE" />
+                  <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="59.0" layoutY="244.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="40.0" layoutY="296.0" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+                  <JFXComboBox fx:id="cmTipo" editable="true" focusColor="WHITE" labelFloat="true" layoutX="81.0" layoutY="305.0" opacity="0.8" prefHeight="34.0" prefWidth="197.0" promptText="Tipo" unFocusColor="WHITE" />
+                  <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="59.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="40.0" layoutY="367.0" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+                  <JFXTextField fx:id="modelo" focusColor="WHITE" labelFloat="true" layoutX="81.0" layoutY="376.0" opacity="0.8" prefHeight="34.0" prefWidth="197.0" promptText="Modelo" unFocusColor="WHITE" />
+                  <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="59.0" layoutY="385.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="46.0" layoutY="438.0" prefHeight="50.0" prefWidth="110.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+                  <JFXTextField fx:id="plazas" focusColor="WHITE" labelFloat="true" layoutX="87.0" layoutY="447.0" opacity="0.8" prefHeight="34.0" prefWidth="52.0" promptText="Plazas" unFocusColor="WHITE" />
+                  <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="65.0" layoutY="457.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="181.0" layoutY="438.0" prefHeight="50.0" prefWidth="110.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+                  <JFXTextField fx:id="costo" focusColor="WHITE" labelFloat="true" layoutX="222.0" layoutY="447.0" opacity="0.8" prefHeight="34.0" prefWidth="57.0" promptText="Costo" unFocusColor="WHITE" />
+                  <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="200.0" layoutY="455.0" pickOnBounds="true" preserveRatio="true" />
+                  <JFXButton layoutX="46.0" layoutY="600.0" onMouseClicked="#Agregar" prefHeight="45.0" prefWidth="118.0" style="-fx-background-radius: 30;" text="Agregar" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="buttonbuscar" />
+                        <String fx:value="stylefont" />
+                     </styleClass>
+                  </JFXButton>
+                  <Label layoutX="400.0" layoutY="463.0" prefHeight="50.0" prefWidth="280.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+                  <JFXTextField fx:id="browser" focusColor="WHITE" layoutX="441.0" layoutY="472.0" onKeyReleased="#Buscador" opacity="0.8" prefHeight="34.0" prefWidth="230.0" promptText="Buscar producto" unFocusColor="WHITE" />
+                  <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="419.0" layoutY="481.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../resources/Images/lupa.png" />
+                     </image>
+                  </ImageView>
+                  <JFXButton layoutX="191.0" layoutY="600.0" onMouseClicked="#Actualizar" prefHeight="45.0" prefWidth="118.0" style="-fx-background-radius: 30;" text="Actualizar" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="buttonbuscar" />
+                        <String fx:value="stylefont" />
+                     </styleClass>
+                  </JFXButton>
+                  <JFXButton layoutX="716.0" layoutY="466.0" onMouseClicked="#Eliminar" prefHeight="45.0" prefWidth="118.0" style="-fx-background-radius: 30;" text="Eliminar" textFill="WHITE">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <styleClass>
+                        <String fx:value="buttoniniciar" />
+                        <String fx:value="iniciar" />
+                        <String fx:value="stylefont" />
+                     </styleClass>
+                  </JFXButton>
+                  <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="59.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true" />
+                  <ScrollPane layoutX="400.0" layoutY="70.0" prefHeight="360.0" prefWidth="890.0" styleClass="stylefont">
+                     <content>
+                        <AnchorPane layoutX="70.0" layoutY="304.0" minHeight="0.0" minWidth="0.0" prefHeight="360.0" prefWidth="890.0">
+                           <children>
+                              <TableView fx:id="TableProducto" onMouseClicked="#Seleccionar" prefHeight="360.0" prefWidth="890.0" styleClass="tabledesing">
+                                 <columns>
+                                    <TableColumn fx:id="tbId" editable="false" styleClass="TableColumn" text="Codigo" />
+                                    <TableColumn fx:id="tbProducto" editable="false" prefWidth="130.40008544921875" styleClass="TableColumn" text="Producto" />
+                                    <TableColumn fx:id="tbMarca" editable="false" prefWidth="108.0" styleClass="TableColumn" text="Marca" />
+                                    <TableColumn fx:id="tbTipo" editable="false" prefWidth="106.4000244140625" styleClass="TableColumn" text="Tipo" />
+                                    <TableColumn fx:id="tbModelo" editable="false" minWidth="0.0" prefWidth="188.0" styleClass="TableColumn" text="Modelo" />
+                                    <TableColumn fx:id="tbPlazas" editable="false" minWidth="0.0" prefWidth="68.00006103515625" styleClass="TableColumn" text="Plazas" />
+                                    <TableColumn fx:id="tbCosto" editable="false" minWidth="0.0" prefWidth="119.20000000000005" styleClass="TableColumn" text="costo" />
+                                    <TableColumn fx:id="tbPrecio" editable="false" minWidth="0.0" prefWidth="86.39999999999998" styleClass="TableColumn" text="Precio" />
+                                 </columns>
+                              </TableView>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
+                  <Label layoutX="46.0" layoutY="509.0" prefHeight="50.0" prefWidth="110.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+                  <JFXTextField fx:id="precio" focusColor="WHITE" labelFloat="true" layoutX="87.0" layoutY="518.0" opacity="0.8" prefHeight="34.0" prefWidth="57.0" promptText="Precio" unFocusColor="WHITE" />
+                  <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="65.0" layoutY="529.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </Pane>
+         </children>
+      </StackPane>
+   </center>
+</BorderPane>

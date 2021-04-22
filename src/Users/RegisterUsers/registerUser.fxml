@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="800.0" stylesheets="@../../resources/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Users.RegisterUsers.ControllerRegisterUser">
+   <children>
+      <BorderPane prefHeight="550.0" prefWidth="800.0">
+         <center>
+            <StackPane fx:id="n" prefHeight="550.0" prefWidth="800.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Pane prefHeight="550.0" prefWidth="800.0" style="-fx-background-color: #050028;">
+                     <children>
+                        <ImageView fitHeight="550.0" fitWidth="800.0" pickOnBounds="true">
+                           <image>
+                              <Image url="@../../resources/Images/Font.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="70.0" layoutY="39.0" prefHeight="28.0" prefWidth="275.0" styleClass="styleTitle" text="Registrar nueva cuenta" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="71.0" layoutY="80.0" prefHeight="17.0" prefWidth="285.0" styleClass="stylefont" text="Completar con los datos correspondientes." textFill="WHITE" />
+                        <Label layoutX="71.0" layoutY="127.0" prefHeight="51.0" prefWidth="241.6" style="-fx-background-color: #0E0642;">
+                           <graphic>
+                              <JFXTextField fx:id="username" focusColor="#01c192" prefHeight="50.5" prefWidth="241.6" promptText="    Nombres y apellidos" style="-fx-text-fill: white;" styleClass="text-field" unFocusColor="BLACK" />
+                           </graphic>
+                        </Label>
+                        <Label layoutX="72.0" layoutY="202.0" prefHeight="51.0" prefWidth="241.6" style="-fx-background-color: #0E0642;">
+                           <graphic>
+                              <JFXTextField fx:id="dni" focusColor="#01c192" prefHeight="50.5" prefWidth="241.6" promptText="    DNI" style="-fx-text-fill: white;" styleClass="text-field" unFocusColor="BLACK" />
+                           </graphic>
+                        </Label>
+                        <Label layoutX="72.0" layoutY="277.0" prefHeight="51.0" prefWidth="241.6" style="-fx-background-color: #0E0642;">
+                           <graphic>
+                              <JFXPasswordField fx:id="password" focusColor="#01c192" prefHeight="50.5" prefWidth="241.5" promptText="   contraseña" style="-fx-text-fill: white;" styleClass="jfx-text-field" unFocusColor="BLACK" />
+                           </graphic>
+                        </Label>
+                        <Label layoutX="72.0" layoutY="352.0" prefHeight="51.0" prefWidth="241.6" style="-fx-background-color: #0E0642;">
+                           <graphic>
+                              <JFXPasswordField fx:id="validPassword" focusColor="#01c192" prefHeight="50.5" prefWidth="241.5" promptText="   Repita la contraseña" style="-fx-text-fill: white;" styleClass="jfx-text-field" unFocusColor="BLACK" />
+                           </graphic>
+                        </Label>
+                        <Label layoutX="356.0" layoutY="127.0" prefHeight="51.0" prefWidth="241.6" style="-fx-background-color: #0E0642;">
+                           <graphic>
+                              <JFXTextField fx:id="edad" focusColor="#01c192" prefHeight="50.5" prefWidth="241.6" promptText="    Edad" style="-fx-text-fill: white;" styleClass="text-field" unFocusColor="BLACK" />
+                           </graphic>
+                        </Label>
+                        <Label layoutX="356.0" layoutY="202.0" prefHeight="51.0" prefWidth="241.6" style="-fx-background-color: #0E0642;">
+                           <graphic>
+                              <JFXTextField fx:id="correo" focusColor="#01c192" prefHeight="50.5" prefWidth="241.6" promptText="    Correo Electronico" style="-fx-text-fill: white;" styleClass="text-field" unFocusColor="BLACK" />
+                           </graphic>
+                        </Label>
+                        <Label layoutX="356.0" layoutY="277.0" prefHeight="51.0" prefWidth="241.6" style="-fx-background-color: #0E0642;">
+                           <graphic>
+                              <JFXTextField fx:id="celular" focusColor="#01c192" prefHeight="50.5" prefWidth="241.6" promptText="    Celular" style="-fx-text-fill: white;" styleClass="text-field" unFocusColor="BLACK" />
+                           </graphic>
+                        </Label>
+                        <Label layoutX="356.0" layoutY="352.0" prefHeight="51.0" prefWidth="241.6" style="-fx-background-color: #0E0642;">
+                           <graphic>
+                              <JFXTextField fx:id="domicilio" focusColor="#01c192" prefHeight="50.5" prefWidth="241.6" promptText="    Domicilio" style="-fx-text-fill: white;" styleClass="text-field" unFocusColor="BLACK" />
+                           </graphic>
+                        </Label>
+                        <JFXButton layoutX="80.0" layoutY="452.0" onMouseClicked="#registrar" prefHeight="45.0" prefWidth="134.0" ripplerFill="#1e00ff" styleClass="button-User-Register" text="Registrar" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="btnSalir" layoutX="232.0" layoutY="452.0" onMouseClicked="#salir" prefHeight="45.0" prefWidth="134.0" ripplerFill="#1e00ff" styleClass="button-Iniciar" text="Salir" textFill="WHITE">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </Pane>
+               </children>
+            </StackPane>
+         </center>
+      </BorderPane>
+   </children>
+</AnchorPane>

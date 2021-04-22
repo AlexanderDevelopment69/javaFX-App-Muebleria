@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/src/Almacen/AgregarProducto/CMCategoria/ModelCategoria.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Almacen/AgregarProducto/ControllerRegisterProducto.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Almacen/AgregarProducto/ModelTableProducto.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Almacen/Categorias/ControllerRegiterTM.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Almacen/Categorias/ModelTableCategoria.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Almacen/Fabricacion/CMProducto/ModelProducto.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Almacen/Fabricacion/ControllerRegistrarProducto.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Almacen/Fabricacion/ModelTableAlmacen.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Almacen/Producto/CMCategoria/ModelCategoria.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Almacen/Producto/CMProveedor/ModelProveedor.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Almacen/Producto/ControllerRegistrarProducto.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Almacen/Producto/ModelTableAlmacen.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Clientes/RegisterCustomers/ControllerRegisterCustomers.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Clientes/RegisterCustomers/ModelTableCliente.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Login/Controller.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Proveedores/ControllerRegisterProveedor.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Proveedores/ModelTableProveedor.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Users/AdministrationUsers/ModelTableUsers.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Users/RegisterUsers/ControllerRegisterUser.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Ventas/NuevaVenta/CMVendedor/ModelVendedor.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Ventas/NuevaVenta/ControllerRegisterVenta.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Ventas/NuevaVenta/ModelTableVentas.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Ventas/NuevaVenta/ReleasedCliente/ModelCliente.java" dialect="GenericSQL" />
+  </component>
+</project>

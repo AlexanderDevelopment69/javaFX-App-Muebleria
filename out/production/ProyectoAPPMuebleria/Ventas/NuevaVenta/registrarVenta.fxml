@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../resources/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventas.NuevaVenta.ControllerRegisterVenta">
+   <center>
+      <AnchorPane style="-fx-background-color: #F7F8FC;" BorderPane.alignment="CENTER">
+         <Pane prefHeight="830.0" prefWidth="1500.0">
+            <Label layoutX="43.0" layoutY="36.0" prefHeight="17.0" prefWidth="297.0" styleClass="stylefont" text="Nueva Venta" />
+            <Label layoutX="45.0" layoutY="207.0" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+            <JFXComboBox fx:id="cmNombreProducto" editable="true" focusColor="WHITE" labelFloat="true" layoutX="86.0" layoutY="216.0" onAction="#consultaCMProducto" opacity="0.8" prefHeight="34.0" prefWidth="197.0" promptText="Producto" unFocusColor="WHITE" />
+            <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="64.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="45.0" layoutY="278.0" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+            <JFXTextField fx:id="cantidad" focusColor="WHITE" labelFloat="true" layoutX="80.0" layoutY="287.0" opacity="0.8" prefHeight="34.0" prefWidth="67.0" promptText="Cantidad" unFocusColor="WHITE" />
+            <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="64.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="45.0" layoutY="349.0" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+            <JFXComboBox fx:id="cmVendedor" editable="true" focusColor="WHITE" labelFloat="true" layoutX="86.0" layoutY="358.0" opacity="0.8" prefHeight="34.0" prefWidth="197.0" promptText="Vendedor" unFocusColor="WHITE" />
+            <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="64.0" layoutY="369.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="190.0" layoutY="278.0" prefHeight="50.0" prefWidth="107.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+            <JFXTextField fx:id="descuento" focusColor="WHITE" labelFloat="true" layoutX="220.0" layoutY="287.0" opacity="0.8" prefHeight="34.0" prefWidth="71.0" promptText="Descuento" unFocusColor="WHITE" />
+            <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="203.0" layoutY="298.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="45.0" layoutY="420.0" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 30;" wrapText="true" />
+            <JFXTextField fx:id="codProducto" editable="false" focusColor="WHITE" labelFloat="true" layoutX="86.0" layoutY="429.0" opacity="0.8" prefHeight="34.0" prefWidth="197.0" promptText="Codigo de producto" unFocusColor="WHITE" />
+            <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="61.0" layoutY="440.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="45.0" layoutY="491.0" prefHeight="50.0" prefWidth="130.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+            <JFXTextField fx:id="marca" editable="false" focusColor="WHITE" labelFloat="true" layoutX="86.0" layoutY="500.0" opacity="0.8" prefHeight="34.0" prefWidth="77.0" promptText="Marca" unFocusColor="WHITE" />
+            <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="61.0" layoutY="511.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="184.0" layoutY="491.0" prefHeight="50.0" prefWidth="110.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+            <JFXTextField fx:id="precio" focusColor="WHITE" labelFloat="true" layoutX="227.0" layoutY="500.0" opacity="0.8" prefHeight="34.0" prefWidth="57.0" promptText="Precio" unFocusColor="WHITE" />
+            <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="205.0" layoutY="511.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="45.0" layoutY="562.0" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+            <JFXTextField fx:id="tipo" editable="false" focusColor="WHITE" labelFloat="true" layoutX="86.0" layoutY="571.0" opacity="0.8" prefHeight="34.0" prefWidth="197.0" promptText="Categoria" unFocusColor="WHITE" />
+            <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="61.0" layoutY="582.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="45.0" layoutY="633.0" prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+            <JFXTextField fx:id="modelo" editable="false" focusColor="WHITE" labelFloat="true" layoutX="86.0" layoutY="642.0" opacity="0.8" prefHeight="34.0" prefWidth="90.0" promptText="Modelo" unFocusColor="WHITE" />
+            <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="61.0" layoutY="653.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="198.0" layoutY="633.0" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+            <JFXTextField fx:id="plazas" editable="false" focusColor="WHITE" labelFloat="true" layoutX="241.0" layoutY="642.0" opacity="0.8" prefHeight="34.0" prefWidth="45.0" promptText="Plazas" unFocusColor="WHITE" />
+            <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="217.0" layoutY="653.0" pickOnBounds="true" preserveRatio="true" />
+            <JFXButton layoutX="46.0" layoutY="720.0" onMouseClicked="#Agregar" prefHeight="45.0" prefWidth="118.0" style="-fx-background-radius: 30;" text="Agregar" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="buttonbuscar" />
+                  <String fx:value="stylefont" />
+               </styleClass>
+            </JFXButton>
+            <JFXButton layoutX="330.0" layoutY="393.0" onMouseClicked="#GenerarVenta" prefHeight="45.0" prefWidth="137.0" style="-fx-background-radius: 30;" text="Generar venta" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="stylefont" />
+                  <String fx:value="buttoniniciar" />
+               </styleClass>
+            </JFXButton>
+            <AnchorPane layoutX="330.0" layoutY="65.0" minHeight="0.0" minWidth="0.0" prefHeight="302.0" prefWidth="994.0" styleClass="stylefont">
+               <children>
+                  <TableView fx:id="TableVentas" prefHeight="302.0" prefWidth="994.0" styleClass="tabledesing">
+                     <columns>
+                        <TableColumn fx:id="tbId" editable="false" prefWidth="73.60001373291016" styleClass="TableColumn" text="Codigo" />
+                        <TableColumn fx:id="tbProducto" editable="false" prefWidth="116.79998779296875" styleClass="TableColumn" text="Producto" />
+                        <TableColumn fx:id="tbMarca" editable="false" prefWidth="116.79998779296875" styleClass="TableColumn" text="Marca" />
+                        <TableColumn fx:id="tbModelo" editable="false" minWidth="0.0" prefWidth="112.79998779296875" styleClass="TableColumn" text="Modelo" />
+                        <TableColumn fx:id="tbPlazas" editable="false" minWidth="0.0" prefWidth="70.4000244140625" styleClass="TableColumn" text="Plazas" />
+                        <TableColumn fx:id="tbCantidad" editable="false" prefWidth="79.199951171875" styleClass="TableColumn" text="Cantidad" />
+                        <TableColumn fx:id="tbPrecio" editable="false" minWidth="0.0" prefWidth="75.20001220703125" styleClass="TableColumn" text="Precio" />
+                        <TableColumn fx:id="tbDescuento" editable="false" minWidth="0.0" prefWidth="112.0" styleClass="TableColumn" text="Descuento" />
+                        <TableColumn fx:id="tbImporte" editable="false" minWidth="0.0" prefWidth="87.9998779296875" styleClass="TableColumn" text="Importe" />
+                        <TableColumn fx:id="tbFecha" editable="false" minWidth="0.0" prefWidth="151.199951171875" styleClass="TableColumn" text="Fecha" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+            <AnchorPane layoutX="330.0" layoutY="471.0" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="652.0" styleClass="stylefont">
+               <children>
+                  <TableView fx:id="TableTotal" prefHeight="330.0" prefWidth="652.0" styleClass="tabledesing">
+                     <columns>
+                        <TableColumn fx:id="tbCodigo2" editable="false" prefWidth="64.0" styleClass="TableColumn" text="Codigo" />
+                        <TableColumn fx:id="tbCliente2" editable="false" prefWidth="131.20001220703125" styleClass="TableColumn" text="Cliente" />
+                        <TableColumn fx:id="tbProducto2" editable="false" prefWidth="131.20001220703125" styleClass="TableColumn" text="Producto" />
+                        <TableColumn fx:id="tbCantidad2" editable="false" minWidth="0.0" prefWidth="91.99993896484375" styleClass="TableColumn" text="Cantidad" />
+                        <TableColumn fx:id="tbTotal2" editable="false" minWidth="0.0" prefWidth="84.00006103515625" styleClass="TableColumn" text="Total" />
+                        <TableColumn fx:id="tbFecha2" editable="false" minWidth="0.0" prefWidth="147.20001220703125" styleClass="TableColumn" text="Fecha" />
+                     </columns>
+                  </TableView>
+               </children>
+            </AnchorPane>
+            <Label layoutX="1070.0" layoutY="385.0" prefHeight="50.0" prefWidth="123.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+            <JFXTextField fx:id="infTotal" editable="false" focusColor="WHITE" labelFloat="true" layoutX="1092.0" layoutY="394.0" onKeyReleased="#Buscador" opacity="0.8" prefHeight="34.0" prefWidth="87.0" promptText="Total a pagar" unFocusColor="WHITE" />
+            <Label layoutX="910.0" layoutY="386.0" prefHeight="50.0" prefWidth="145.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+            <JFXTextField fx:id="infDscuento" editable="false" focusColor="WHITE" labelFloat="true" layoutX="940.0" layoutY="394.0" onKeyReleased="#Buscador" opacity="0.8" prefHeight="34.0" prefWidth="107.0" promptText="Descuento total" unFocusColor="WHITE" />
+            <Label layoutX="687.0" layoutY="386.0" prefHeight="50.0" prefWidth="202.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+            <JFXTextField fx:id="infCantidad" editable="false" focusColor="WHITE" labelFloat="true" layoutX="721.0" layoutY="394.0" onKeyReleased="#Buscador" opacity="0.8" prefHeight="34.0" prefWidth="161.0" promptText="Cantidad de productos" unFocusColor="WHITE" />
+            <JFXButton layoutX="483.0" layoutY="392.0" onMouseClicked="#Cancelar" prefHeight="45.0" prefWidth="118.0" style="-fx-background-radius: 30;" text="Cancelar" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="stylefont" />
+                  <String fx:value="buttoniniciar" />
+               </styleClass>
+            </JFXButton>
+            <Label layoutX="1005.0" layoutY="471.0" prefHeight="50.0" prefWidth="280.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+            <JFXTextField fx:id="browser" focusColor="WHITE" layoutX="1046.0" layoutY="480.0" onKeyReleased="#Buscador" opacity="0.8" prefHeight="34.0" prefWidth="230.0" promptText="Buscar producto" unFocusColor="WHITE" />
+            <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="1024.0" layoutY="489.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../resources/Images/lupa.png" />
+               </image>
+            </ImageView>
+            <JFXButton layoutX="1024.0" layoutY="545.0" onMouseClicked="#Eliminar" prefHeight="45.0" prefWidth="118.0" style="-fx-background-radius: 30;" text="Eliminar" textFill="WHITE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <styleClass>
+                  <String fx:value="stylefont" />
+                  <String fx:value="buttoniniciar" />
+               </styleClass>
+            </JFXButton>
+            <Label layoutX="45.0" layoutY="65.0" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+            <JFXTextField fx:id="cliente" focusColor="WHITE" labelFloat="true" layoutX="86.0" layoutY="74.0" onKeyReleased="#Vend" opacity="0.8" prefHeight="34.0" prefWidth="197.0" promptText="Cliente" unFocusColor="WHITE" />
+            <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="64.0" layoutY="85.0" pickOnBounds="true" preserveRatio="true" />
+            <Label layoutX="330.0" layoutY="12.0" prefHeight="35.0" prefWidth="145.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+            <JFXTextField fx:id="idVenta" editable="false" focusColor="WHITE" labelFloat="true" layoutX="355.0" layoutY="13.0" onKeyReleased="#Buscador" opacity="0.8" prefHeight="34.0" prefWidth="107.0" promptText="Numero de venta" unFocusColor="WHITE" />
+            <Label layoutX="45.0" layoutY="136.0" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
+            <JFXTextField fx:id="ReleasedNombre" focusColor="WHITE" labelFloat="true" layoutX="86.0" layoutY="145.0" opacity="0.8" prefHeight="34.0" prefWidth="197.0" promptText="Nombre" unFocusColor="WHITE" />
+            <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="64.0" layoutY="156.0" pickOnBounds="true" preserveRatio="true" />
+         </Pane>
+      </AnchorPane>
+   </center>
+</BorderPane>

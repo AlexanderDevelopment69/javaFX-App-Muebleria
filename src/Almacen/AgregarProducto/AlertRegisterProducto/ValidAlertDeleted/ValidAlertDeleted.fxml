@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="30.0" style="-fx-background-color: #F7F7F7;" stylesheets="@../../../../resources/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Almacen.AgregarProducto.AlertRegisterProducto.ValidAlertDeleted.ValidAlertDeletedController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="169.0" prefWidth="323.0">
+         <children>
+            <ImageView fitHeight="180.0" fitWidth="231.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../resources/Images/checkCategoria.gif" />
+               </image>
+            </ImageView>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+      <Label styleClass="stylefont" text="Eliminado correctamente">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+         <padding>
+            <Insets bottom="20.0" />
+         </padding>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </Label>
+      <JFXButton fx:id="btnContinuar" onAction="#onDone" prefHeight="39.0" prefWidth="161.0" style="-fx-font-size: 16; -fx-background-color: #00F1C5;" styleClass="stylefont" text="Continuar" textFill="WHITE" />
+      <Label styleClass="stylefont" text="Producto eliminado correctamente" />
+   </children>
+   <padding>
+      <Insets bottom="20.0" top="10.0" />
+   </padding>
+</VBox>
