@@ -177,42 +177,18 @@ PreparedStatement pst;
                 String Proveedor=rs.getString("proNombre");
                 String Estado=rs.getString("estado");
                 Timestamp Fecha=rs.getTimestamp("fecha");
-
                 ModelTableAlmacen c=new ModelTableAlmacen(Id,Producto,Marca,Tipo,Modelo,Plazas,Cantidad,Precio,Proveedor,Estado,Fecha);
-
 //                ModelTableAlmacen c=new ModelTableAlmacen(Fecha);
                 obs.add(c);
             }
+            connection.close();
         } catch (Exception ex) {
             System.out.println("" + ex);
         }
         return obs;
     }
 
-//    public ObservableList<ModelTableAlmacen> getCategoria() throws ClassNotFoundException {
-//        ObservableList<ModelTableAlmacen> obs = FXCollections.observableArrayList();
-//
-//        try {
-//
-//            ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
-//            Connection connection = ConnectionClass.getConnection();
-//            pst= connection.prepareStatement("select categoria.catNombre from categoria");
-//            ResultSet rs = pst.executeQuery();
-//            while (rs.next()) {
-//                String CatNombre=rs.getString("catNombre");
-//                ModelTableAlmacen e=new ModelTableAlmacen(CatNombre);
-//
-////                ModelTableAlmacen c=new ModelTableAlmacen(Fecha);
-//                obs.add(e);
-//            }
-//        } catch (Exception ex) {
-//            System.out.println("" + ex);
-//        }
-//        return obs;
-//    }
-
     public ObservableList<ModelTableAlmacen> getBuscadors (String valor) throws ClassNotFoundException {
-
         ObservableList<ModelTableAlmacen> obs = FXCollections.observableArrayList();
 
         try {
@@ -240,6 +216,7 @@ PreparedStatement pst;
 //                ModelTableAlmacen c=new ModelTableAlmacen(Fecha);
                 obs.add(c);
             }
+            connection.close();
         } catch (Exception ex) {
             System.out.println("" + ex);
         }

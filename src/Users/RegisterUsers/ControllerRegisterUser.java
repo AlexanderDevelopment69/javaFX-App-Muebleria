@@ -20,6 +20,7 @@ import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class ControllerRegisterUser implements Initializable {
@@ -84,7 +85,7 @@ public class ControllerRegisterUser implements Initializable {
         if (username.getText().isBlank() ||dni.getText().isBlank() || password.getText().isBlank() || edad.getText().isBlank()||celular.getText().isBlank() ||domicilio.getText().isBlank()) {
 
             try {
-                invalidPane = FXMLLoader.load(getClass().getResource("/Users/RegisterUsers/AlertRegisterUsers/InvalidAlert/InvalidAlert.fxml"));
+                invalidPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Users/RegisterUsers/AlertRegisterUsers/InvalidAlert/InvalidAlert.fxml")));
             } catch (IOException ioe) {
                 ioe.printStackTrace();
             }
@@ -114,22 +115,21 @@ public class ControllerRegisterUser implements Initializable {
                 pst.setString(6, Domicilio);
                 pst.setString(7, Celular);
                 pst.executeUpdate();
-
+                connection.close();
                 try {
-                    validPane = FXMLLoader.load(getClass().getResource("/Users/RegisterUsers/AlertRegisterUsers/ValidAlert/ValidAlert.fxml"));
+                    validPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Users/RegisterUsers/AlertRegisterUsers/ValidAlert/ValidAlert.fxml")));
 
                 } catch (IOException ioe) {
                     ioe.printStackTrace();
                 }
-
                 validDialog = new JFXDialog(n, validPane, JFXDialog.DialogTransition.CENTER);
-
                 validDialog.show();
+
 
             } catch (SQLException ex) {
 
                 try {
-                    invalidPane = FXMLLoader.load(getClass().getResource("/Users/RegisterUsers/AlertRegisterUsers/InvalidAlert/InvalidAlert.fxml"));
+                    invalidPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Users/RegisterUsers/AlertRegisterUsers/InvalidAlert/InvalidAlert.fxml")));
                 } catch (IOException ioe) {
                     ioe.printStackTrace();
                 }

@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../resources/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Proveedores.ControllerRegisterProveedor">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../resources/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Proveedores.ControllerRegisterProveedor">
    <center>
       <StackPane fx:id="n" style="-fx-background-color: #F7F8FC;" BorderPane.alignment="CENTER">
          <children>
@@ -33,7 +33,7 @@
                   <Label layoutX="75.0" layoutY="296.0" prefHeight="50.0" prefWidth="270.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
                   <JFXTextField fx:id="celular" focusColor="WHITE" labelFloat="true" layoutX="116.0" layoutY="305.0" opacity="0.8" prefHeight="34.0" prefWidth="214.0" promptText="Celular" unFocusColor="WHITE" />
                   <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="94.0" layoutY="316.0" pickOnBounds="true" preserveRatio="true" />
-                  <JFXButton layoutX="245.0" layoutY="450.0" prefHeight="45.0" prefWidth="118.0" style="-fx-background-radius: 30;" text="Actualizar" textFill="WHITE">
+                  <JFXButton layoutX="245.0" layoutY="450.0" onMouseClicked="#Actualizar" prefHeight="45.0" prefWidth="118.0" style="-fx-background-radius: 30;" text="Actualizar" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -71,7 +71,7 @@
                   </ImageView>
                   <AnchorPane layoutX="500.0" layoutY="83.0" minHeight="0.0" minWidth="0.0" prefHeight="250.0" prefWidth="516.0" styleClass="stylefont">
                      <children>
-                        <TableView fx:id="TableProveedor" prefHeight="250.0" prefWidth="516.0" styleClass="tabledesing">
+                        <TableView fx:id="TableProveedor" onMouseClicked="#Seleccionar" prefHeight="250.0" prefWidth="516.0" styleClass="tabledesing">
                            <columns>
                               <TableColumn fx:id="tbRuc" editable="false" prefWidth="83.20001220703125" styleClass="TableColumn" text="RUC" />
                               <TableColumn fx:id="tbEmpresa" editable="false" prefWidth="117.5999755859375" styleClass="TableColumn" text="Empresa" />

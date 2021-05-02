@@ -1,6 +1,8 @@
 package Almacen.Fabricacion;
 
 
+import Almacen.AgregarProducto.ModelTableProducto;
+import Almacen.Categorias.ModelTableCategoria;
 import Almacen.Fabricacion.CMProducto.ModelProducto;
 import ConnectionMySQL.ConnectionMYSQL;
 
@@ -166,14 +168,44 @@ public class ControllerRegistrarProducto implements Initializable {
                 pst.setString(4, Estado);
                 pst.executeUpdate();
                 Nuevo();
+                connection.close();
 
 
             } catch (SQLException ioe) {
                 ioe.printStackTrace();
-
-
             }
+
+//Cantidad de stock de productos
+            try {
+
+                Cantidad = Integer.parseInt(prueba);
+                ModelTableAlmacen p = new ModelTableAlmacen(Producto, Cantidad, Proveedor, Estado);
+
+
+//                this.IngresarTableAlmacen.add(p);
+//                this.TableAlmacen.setItems(IngresarTableAlmacen);
+
+                ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
+                Connection connection = ConnectionClass.getConnection();
+                pst = connection.prepareStatement("update productos set stock=? + stock where producto=?");
+                pst.setInt(1,Cantidad);
+                pst.setString(2, p.getProducto());
+                pst.executeUpdate();
+                connection.close();
+//                Nuevo();
+
+
+            } catch (SQLException ioe) {
+                ioe.printStackTrace();
+            }
+
+
+
+
         }
+
+
+
             MostrarProductoEnTabla();
             MostrarProductoEnTablaTotal();
 
@@ -212,19 +244,31 @@ public class ControllerRegistrarProducto implements Initializable {
 
     @FXML
     void Eliminar(MouseEvent event) throws SQLException {
-        ModelTableAlmacen p=TableAlmacen.getSelectionModel().getSelectedItem();
-        ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
-        Connection connection = ConnectionClass.getConnection();
-        pst= connection.prepareStatement("delete from almacen where idAlmacen=?");
-        pst.setInt(1,p.getId());
-        pst.executeUpdate();
-        JOptionPane.showMessageDialog(null,"Eliminado");
+
+        ModelTableAlmacen p = TableAlmacen.getSelectionModel().getSelectedItem();
+        if(p==null){
 
 
-        MostrarProductoEnTabla();
-        MostrarProductoEnTablaTotal();
-        this.TableAlmacen.refresh();
 
+        }else {
+            try {
+
+                ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
+                Connection connection = ConnectionClass.getConnection();
+                pst = connection.prepareStatement("delete from almacen where idAlmacen=?");
+                pst.setInt(1, p.getId());
+                pst.executeUpdate();
+                connection.close();
+                JOptionPane.showMessageDialog(null, "Eliminado");
+
+
+                MostrarProductoEnTabla();
+                MostrarProductoEnTablaTotal();
+                this.TableAlmacen.refresh();
+            } catch (SQLException e) {
+                System.out.println(e);
+            }
+        }
     }
 
 
@@ -337,6 +381,7 @@ public class ControllerRegistrarProducto implements Initializable {
                 plazas.setText(rs.getString("plazas"));
 
             }
+            connection.close();
             codProducto.setStyle("-fx-text-fill:#644EFF");
             marca.setStyle("-fx-text-fill:#644EFF ");
             costo.setStyle("-fx-text-fill:#644EFF ");

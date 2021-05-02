@@ -5,6 +5,7 @@ import ConnectionMySQL.ConnectionMYSQL;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXTextField;
+import javafx.beans.property.adapter.JavaBeanObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -48,6 +50,7 @@ public class ControllerRegisterProducto implements Initializable {
 
     @FXML
     private JFXComboBox<ModelCategoria> cmTipo;
+
 
     @FXML
     private JFXTextField modelo;
@@ -128,13 +131,13 @@ public class ControllerRegisterProducto implements Initializable {
                 ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
                 Connection connection = ConnectionClass.getConnection();
                 pst= connection.prepareStatement("select *from productos where producto=? or codProducto=?");
-
                 pst.setString(1,Producto);
                 pst.setString(2,Id);
                 ResultSet rs = pst.executeQuery();
                 if (rs.next()) {
                     //Alert que verifica si ya se registro la categoria
                     MostrarInValidAltert();
+                    connection.close();
 
                 }
                 else {
@@ -147,7 +150,7 @@ public class ControllerRegisterProducto implements Initializable {
                         this.IngresarTableProducto.add(p);
                         this.TableProducto.setItems(IngresarTableProducto);
 
-                        pst = connection.prepareStatement("insert into productos (codProducto,producto,marca,codTipo,modelo,plazas,costo,precio) values (?,?,?,?,?,?,?,?)");
+                        pst = connection.prepareStatement("insert into productos (codProducto,producto,marca,codTipo,modelo,plazas,costo,precio,stock) values (?,?,?,?,?,?,?,?,?)");
                         pst.setString(1, Id);
                         pst.setString(2, Producto);
                         pst.setString(3, Marca);
@@ -156,7 +159,9 @@ public class ControllerRegisterProducto implements Initializable {
                         pst.setString(6, Plazas);
                         pst.setDouble(7, Costo);
                         pst.setDouble(8, Precio);
+                        pst.setDouble(9, 0);
                         pst.executeUpdate();
+                        connection.close();
                         MostrarValidAltert();
                         Nuevo();
                     } catch (SQLException ioe) {
@@ -191,26 +196,27 @@ public class ControllerRegisterProducto implements Initializable {
         //Selecionar items de la tabla
         ModelTableProducto p = TableProducto.getSelectionModel().getSelectedItem();
         if (p == null) {
-            id.setText("Selecciona algo ");
-
+            JOptionPane.showMessageDialog(null,"Selecciona algo");
 
         } else {
-//            categoria.setStyle("-fx-opacity: 0.80");
-//            descripcion.setStyle("-fx-opacity: 0.80");
+//
             //Conexion a la base de datos;
-            ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
-            Connection connection = ConnectionClass.getConnection();
-            pst = connection.prepareStatement("update productos set costo=? ,precio=? where codProducto=?");
-            pst.setString(1, String.valueOf(Costo));
-            pst.setString(2, String.valueOf(Precio));
-            pst.setString(3, p.getId());
-            pst.executeUpdate();
-            MostrarValidAltert();
-
-            MostrarProductosEnTabla();
 
 
-            this.TableProducto.refresh();
+                ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
+                Connection connection = ConnectionClass.getConnection();
+                pst = connection.prepareStatement("update productos set costo=? ,precio=? where codProducto=?");
+                pst.setString(1, String.valueOf(Costo));
+                pst.setString(2, String.valueOf(Precio));
+                pst.setString(3, p.getId());
+                pst.executeUpdate();
+                connection.close();
+                JOptionPane.showMessageDialog(null,"Actualizado");
+
+                MostrarProductosEnTabla();
+
+
+                this.TableProducto.refresh();
         }
     }
 
@@ -219,11 +225,13 @@ public class ControllerRegisterProducto implements Initializable {
     @FXML
     public  void Seleccionar(MouseEvent event) {
         ModelTableProducto p=TableProducto.getSelectionModel().getSelectedItem();
+
         if(p==null){
 
 
         }
         else {
+
             String hola;
             id.setText(p.getId());
             producto.setText(p.getProducto());
@@ -236,11 +244,15 @@ public class ControllerRegisterProducto implements Initializable {
 //            cmTipo.getItems().add("3");
 
 
-//            cmTipo.setValue(p.getTipo());
+
+
             modelo.setText(p.getModelo());
             plazas.setText(p.getPlazas());
             costo.setText(String.valueOf(p.getCosto()));
             precio.setText(String.valueOf(p.getPrecio()));
+
+
+
         }
     }
 
@@ -248,18 +260,31 @@ public class ControllerRegisterProducto implements Initializable {
 
 
     @FXML
-    void Eliminar(MouseEvent event) throws SQLException {
-        ModelTableProducto p=TableProducto.getSelectionModel().getSelectedItem();
-        ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
-        Connection connection = ConnectionClass.getConnection();
-        pst= connection.prepareStatement("delete from productos where codProducto=?");
-        pst.setString(1,p.getId());
-        pst.executeUpdate();
-        MostrarValirAlertDeleted();
+    void Eliminar(MouseEvent event)  {
+        ModelTableProducto p = TableProducto.getSelectionModel().getSelectedItem();
 
+        if(p==null) {
 
-        MostrarProductosEnTabla();
-        this.TableProducto.refresh();
+        }else {
+
+            try {
+
+                ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
+                Connection connection = ConnectionClass.getConnection();
+                pst = connection.prepareStatement("delete from productos where codProducto=?");
+                pst.setString(1, p.getId());
+                pst.executeUpdate();
+                connection.close();
+                MostrarValirAlertDeleted();
+                MostrarProductosEnTabla();
+                Nuevo();
+                this.TableProducto.refresh();
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "Producto esta siendo usado en ventas o compras, no puede eliminarlo");
+
+            }
+        }
+
     }
 
 
@@ -292,6 +317,7 @@ public class ControllerRegisterProducto implements Initializable {
     public void initComboboxCategoria(){
 
         ModelCategoria s=new ModelCategoria();
+
         ObservableList<ModelCategoria> items=s.getCategoria();
         this.cmTipo.setItems(items);
 
@@ -379,6 +405,8 @@ public class ControllerRegisterProducto implements Initializable {
 
         MostrarProductosEnTabla();
         initComboboxCategoria();
+
+
 
 
     }

@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -29,13 +30,13 @@ public class Controller implements Initializable {
     private JFXButton btnlogin;
 
     @FXML
-    private JFXTextField username;
+    public JFXTextField username;
 
     @FXML
     private JFXPasswordField password;
     PreparedStatement pst;
     @FXML
-    void ingresar(MouseEvent event) throws IOException, SQLException {
+    public void ingresar(MouseEvent event) throws IOException, SQLException {
             String Username;
             String Password;
             Username=username.getText();
@@ -61,8 +62,9 @@ public class Controller implements Initializable {
                 stage.show();
                 Stage myStage = (Stage) this.btnlogin.getScene().getWindow();
                 myStage.close();
+                connection.close();
             }catch (Exception e){
-                    System.out.println(e);
+                JOptionPane.showMessageDialog(null,e);
                 }
 
             }

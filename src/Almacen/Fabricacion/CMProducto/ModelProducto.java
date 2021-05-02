@@ -52,6 +52,7 @@ public class ModelProducto {
 
                 obs.add(e);
             }
+            connection.close();
         } catch (Exception ex) {
             System.out.println("" + ex);
         }

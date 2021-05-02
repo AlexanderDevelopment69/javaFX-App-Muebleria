@@ -89,6 +89,7 @@ public class ModelTableUsers {
                 ModelTableUsers c=new ModelTableUsers(Dni,Nombre,Contrasena,Edad,Correo,Domicilio,Celular);
                 obs.add(c);
             }
+            connection.close();
         } catch (Exception ex) {
             System.out.println("" + ex);
         }

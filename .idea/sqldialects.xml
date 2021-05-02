@@ -15,14 +15,17 @@
     <file url="file://$PROJECT_DIR$/src/Almacen/Producto/ModelTableAlmacen.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/Clientes/RegisterCustomers/ControllerRegisterCustomers.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/Clientes/RegisterCustomers/ModelTableCliente.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/DashboardPrincipal/ControllerPrincipalMenu.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/Login/Controller.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/Proveedores/ControllerRegisterProveedor.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/Proveedores/ModelTableProveedor.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Users/AdministrationUsers/ControllerAdministrationUsers.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/Users/AdministrationUsers/ModelTableUsers.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/Users/RegisterUsers/ControllerRegisterUser.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/Ventas/NuevaVenta/CMVendedor/ModelVendedor.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/Ventas/NuevaVenta/ControllerRegisterVenta.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/Ventas/NuevaVenta/ModelTableVentas.java" dialect="GenericSQL" />
     <file url="file://$PROJECT_DIR$/src/Ventas/NuevaVenta/ReleasedCliente/ModelCliente.java" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/Ventas/VentasDashboard/ControllerVentasDashboard.java" dialect="GenericSQL" />
   </component>
 </project>

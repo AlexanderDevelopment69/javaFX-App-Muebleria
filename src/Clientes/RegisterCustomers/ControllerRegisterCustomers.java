@@ -1,5 +1,6 @@
 package Clientes.RegisterCustomers;
 
+
 import ConnectionMySQL.ConnectionMYSQL;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDialog;
@@ -17,11 +18,16 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
+
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class ControllerRegisterCustomers implements Initializable {
@@ -62,6 +68,8 @@ public class ControllerRegisterCustomers implements Initializable {
     @FXML
     private JFXTextField edad;
     @FXML
+    private JFXTextField fecha;
+    @FXML
     private JFXTextField correo;
     @FXML
     private TableView<ModelTableCliente> TableCliente;
@@ -92,7 +100,8 @@ public class ControllerRegisterCustomers implements Initializable {
 
     @FXML
     private TableColumn<?, ?> tbEdad;
-
+    @FXML
+    private TableColumn<?, ?> tbFecha;
     @FXML
     private TableColumn<?, ?> tbCorreo;
 
@@ -115,37 +124,50 @@ public class ControllerRegisterCustomers implements Initializable {
         Dni=dni.getText();
         Ruc=ruc.getText();
         Celular=celular.getText();
-        Edad=edad.getText();
+//        Edad=edad.getText();
+        String Fecha= fecha.getText();
         Correo=correo.getText();
 
+        if(Nombres.isBlank()||Apellidos.isBlank()||Direccion.isBlank()||Sexo.isBlank()||Dni.isBlank()){
+
+        JOptionPane.showMessageDialog(null,"Completar");
+
+        }else{
+
+//            ModelTableCliente p=new ModelTableCliente(Nombres,Apellidos,Direccion,Sexo,Dni,Ruc,Celular,Edad,Correo);
+            ModelTableCliente p=new ModelTableCliente(Nombres,Apellidos,Direccion,Sexo,Dni,Ruc,Celular,Fecha,Correo);
+            this.IngresarTableCliente.add(p);
+            this.TableCliente.setItems(IngresarTableCliente);
+
+            try {
+                ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
+                Connection connection = ConnectionClass.getConnection();
+                pst = connection.prepareStatement("insert into cliente (cliNombres,cliApellidos,cliDireccion,cliSexo,cliDni,cliRuc,cliCelular,cliFecha,cliCorreo) values (?,?,?,?,?,?,?,STR_TO_DATE(?,'%d/%m/%Y'),?)");
+                pst.setString(1,Nombres);
+                pst.setString(2,Apellidos);
+                pst.setString(3, Direccion);
+                pst.setString(4, Sexo);
+                pst.setString(5, Dni);
+                pst.setString(6, Ruc);
+                pst.setString(7,Celular);
+//                pst.setString(8,Edad);
+                pst.setString(8, String.valueOf(Fecha));
+                pst.setString(9,Correo);
+                pst.executeUpdate();
+                Nuevo();
+                MostrarValidAltert();
+                connection.close();
+
+            } catch(SQLException ioe) {
+                ioe.printStackTrace();
+            }
+
+            MostrarClienteEnTabla();
 
 
-        ModelTableCliente p=new ModelTableCliente(Nombres,Apellidos,Direccion,Sexo,Dni,Ruc,Celular,Edad,Correo);
-        this.IngresarTableCliente.add(p);
-        this.TableCliente.setItems(IngresarTableCliente);
-
-        try {
-            ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
-            Connection connection = ConnectionClass.getConnection();
-            pst = connection.prepareStatement("insert into cliente (cliNombres,cliApellidos,cliDireccion,cliSexo,cliDni,cliRuc,cliCelular,cliEdad,cliCorreo) values (?,?,?,?,?,?,?,?,?)");
-            pst.setString(1,Nombres);
-            pst.setString(2,Apellidos);
-            pst.setString(3, Direccion);
-            pst.setString(4, Sexo);
-            pst.setString(5, Dni);
-            pst.setString(6, Ruc);
-            pst.setString(7,Celular);
-            pst.setString(8,Edad);
-            pst.setString(9,Correo);
-            pst.executeUpdate();
-
-            MostrarValidAltert();
-
-        } catch(SQLException ioe) {
-            ioe.printStackTrace();
         }
 
-        MostrarClienteEnTabla();
+
 
     }
 
@@ -154,12 +176,115 @@ public class ControllerRegisterCustomers implements Initializable {
     void Buscar(MouseEvent event) {
 
     }
-
     @FXML
-    void Nuevo(MouseEvent event) {
+    void Eliminar(MouseEvent event)  {
+
+        ModelTableCliente p=TableCliente.getSelectionModel().getSelectedItem();
+
+            if (p.equals(null)) {
+
+            } else {
+
+                try {
+                ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
+                Connection connection = ConnectionClass.getConnection();
+                pst = connection.prepareStatement("delete from cliente where cliCodigo=?");
+                pst.setInt(1, p.getId());
+                pst.executeUpdate();
+                connection.close();
+                MostrarValirAlertDeleted();
+                Nuevo();
+                MostrarClienteEnTabla();
+                this.TableCliente.refresh();
+                    connection.close();
+
+            }catch (SQLException e){
+                JOptionPane.showMessageDialog(null,"Cliente no puede ser Eliminado por que efectua una venta");
+            }
+
+            }
 
     }
-    public void MostrarClienteEnTabla(){
+
+
+    @FXML
+    public  void Seleccionar(MouseEvent event) {
+        ModelTableCliente p=TableCliente.getSelectionModel().getSelectedItem();
+        if(p==null){
+
+
+        }
+        else {
+
+            nombre.setText(p.getNombres());
+            apellidos.setText(p.getApellidos());
+            direccion.setText(p.getDireccion());
+//            edad.setText(p.getEdad());
+            fecha.setText(String.valueOf(p.getFecha()));
+            cmSexo.setValue(p.getSexo());
+            dni.setText(p.getDni());
+            ruc.setText(p.getRuc());
+            celular.setText(p.getCelular());
+            correo.setText(p.getCorreo());
+
+
+        }
+    }
+
+    @FXML
+    void Buscador(KeyEvent event) {
+        String Buscar=this.browser.getText();
+        CargarDatosBuscador(Buscar);
+    }
+
+
+    public void CargarDatosBuscador(String valor) {
+        try {
+
+            ModelTableCliente a=new ModelTableCliente();
+            ObservableList<ModelTableCliente> items=a.getBuscadors(valor);
+            this.TableCliente.setItems(items);
+
+
+
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+
+    @FXML
+    void Actualizar(MouseEvent event) throws SQLException {
+
+
+
+        //Selecionar items de la tabla
+        ModelTableCliente p = TableCliente.getSelectionModel().getSelectedItem();
+        if (p == null) {
+            JOptionPane.showMessageDialog(null,"Selecciona algo");
+
+        } else {
+
+            //Conexion a la base de datos;
+            ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
+            Connection connection = ConnectionClass.getConnection();
+            pst = connection.prepareStatement("update cliente set cliNombres=? ,cliApellidos=?,cliDNI=?,cliRUC=? where cliCodigo=?");
+            pst.setString(1, String.valueOf(nombre.getText()));
+            pst.setString(2, String.valueOf(apellidos.getText()));
+            pst.setString(3, String.valueOf(dni.getText()));
+            pst.setString(4, String.valueOf(ruc.getText()));
+            pst.setInt(5, p.getId());
+            pst.executeUpdate();
+            connection.close();
+            Nuevo();
+            MostrarValidAlertUpdate();
+            MostrarClienteEnTabla();
+            this.TableCliente.refresh();
+            connection.close();
+        }
+    }
+ public void MostrarClienteEnTabla(){
         try {
 
             ModelTableCliente s=new ModelTableCliente();
@@ -175,7 +300,7 @@ public class ControllerRegisterCustomers implements Initializable {
     public void  MostrarValidAltert(){
         //Alert que verifica si ya se registro la categoria
         try {
-            validPane = FXMLLoader.load(getClass().getResource("/Clientes/AlertRegisterCustomers/ValidAlert/ValidAlert.fxml"));
+            validPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Clientes/AlertRegisterCustomers/ValidAlert/ValidAlert.fxml")));
 
         } catch (IOException ioe) {
             ioe.printStackTrace();
@@ -186,8 +311,23 @@ public class ControllerRegisterCustomers implements Initializable {
         validDialog.show();
 
     }
+    public void  MostrarValidAlertUpdate(){
+        //Alert que verifica si ya se registro la categoria
+        try {
+            validPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Clientes/AlertRegisterCustomers/ValidAlertUpdate/ValidAlertUpdate.fxml")));
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        validDialog = new JFXDialog(n, validPane, JFXDialog.DialogTransition.LEFT);
 
-//    public void  MostrarInValidAltert(){
+        validDialog.show();
+
+    }
+
+
+
+
+    //    public void  MostrarInValidAltert(){
 //        //Alert que verifica si ya se registro la categoria
 //        try {
 //            invalidPane = FXMLLoader.load(getClass().getResource("/Clientes/Categorias/AlertRegisterCustomers/InvalidAlert/InvalidAlert.fxml"));
@@ -209,18 +349,18 @@ public class ControllerRegisterCustomers implements Initializable {
 //        invalidDialog.show();
 //
 //    }
-//    public void  MostrarValirAlertDeleted(){
-//        //Alert que verifica si ya se registro la categoria
-//        try {
-//            validPane = FXMLLoader.load(getClass().getResource("/Clientes/Categorias/AlertRegisterCustomers/ValidAlertDeleted/ValidAlertDeleted.fxml"));
-//        } catch (IOException ioe) {
-//            ioe.printStackTrace();
-//        }
-//        validDialog = new JFXDialog(n, validPane, JFXDialog.DialogTransition.LEFT);
-//
-//        validDialog.show();
-//
-//    }
+    public void  MostrarValirAlertDeleted(){
+        //Alert que verifica si ya se registro la categoria
+        try {
+            validPane = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/Clientes/AlertRegisterCustomers/ValidAlertDeleted/ValidAlertDeleted.fxml")));
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
+        }
+        validDialog = new JFXDialog(n, validPane, JFXDialog.DialogTransition.LEFT);
+
+        validDialog.show();
+
+    }
 
     @FXML
     void Buscar(KeyEvent event) {
@@ -231,11 +371,16 @@ public class ControllerRegisterCustomers implements Initializable {
                 apellidos.setText("");
                 direccion.setText("");
                 cmSexo.setValue(null);
+//                edad.setText("");
+                fecha.setText("");
                 dni.setText("");
                 ruc.setText("");
                 celular.setText("");
+                correo.setText("");
                 nombre.requestFocus();
             }
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -249,12 +394,15 @@ public class ControllerRegisterCustomers implements Initializable {
         tbDni.setCellValueFactory(new PropertyValueFactory<>("Dni"));
         tbRuc.setCellValueFactory(new PropertyValueFactory<>("Ruc"));
         tbCelular.setCellValueFactory(new PropertyValueFactory<>("Celular"));
-        tbEdad.setCellValueFactory(new PropertyValueFactory<>("Ruc"));
-        tbCorreo.setCellValueFactory(new PropertyValueFactory<>("Celular"));
+//        tbEdad.setCellValueFactory(new PropertyValueFactory<>("Edad"));
+        tbFecha.setCellValueFactory(new PropertyValueFactory<>("Fecha"));
+        tbCorreo.setCellValueFactory(new PropertyValueFactory<>("Correo"));
         MostrarClienteEnTabla();
 
         ObservableList<String> c = FXCollections.observableArrayList("M","F");
         cmSexo.setItems(c);
+
+
 
     }
 

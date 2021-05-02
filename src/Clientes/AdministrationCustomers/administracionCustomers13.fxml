@@ -3,9 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import java.lang.String?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -20,21 +18,13 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="stackPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../resources/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Clientes.AdministrationCustomers.ControllerAdministrationCustomers">
+<BorderPane fx:id="stackPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../resources/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Clientes.AdministrationCustomers.ControllerAdministrationCustomers">
    <center>
       <AnchorPane style="-fx-background-color: #F7F8FC;" BorderPane.alignment="CENTER">
-         <padding>
-            <Insets bottom="200.0" left="220.0" />
-         </padding>
          <children>
             <Pane>
                <children>
-                  <Label layoutX="43.0" layoutY="36.0" prefHeight="17.0" prefWidth="239.0" styleClass="stylefont" text="Hola, aquí podrá registrar los productos" />
-                  <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="59.0" layoutY="527.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../resources/Images/lupa.png" />
-                     </image>
-                  </ImageView>
+                  <Label layoutX="77.0" layoutY="37.0" prefHeight="17.0" prefWidth="239.0" styleClass="stylefont" text="Registro total de clientes." />
                   <Label layoutX="77.0" layoutY="77.0" prefHeight="50.0" prefWidth="280.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
                   <JFXTextField fx:id="browser" focusColor="WHITE" layoutX="118.0" layoutY="86.0" opacity="0.8" prefHeight="34.0" prefWidth="230.0" promptText="Buscar cliente" unFocusColor="WHITE" />
                   <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="96.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
@@ -42,16 +32,7 @@
                         <Image url="@../../resources/Images/lupa.png" />
                      </image>
                   </ImageView>
-                  <JFXButton layoutX="395.0" layoutY="79.0" onMouseClicked="#Buscar" prefHeight="40.0" prefWidth="110.0" style="-fx-background-radius: 30;" text="Buscar" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <styleClass>
-                        <String fx:value="buttonbuscar" />
-                        <String fx:value="stylefont" />
-                     </styleClass>
-                  </JFXButton>
-                  <JFXButton layoutX="532.0" layoutY="79.0" prefHeight="40.0" prefWidth="110.0" style="-fx-background-radius: 30;" text="Eliminar" textFill="WHITE">
+                  <JFXButton layoutX="388.0" layoutY="83.0" prefHeight="40.0" prefWidth="110.0" style="-fx-background-radius: 30;" text="Eliminar" textFill="WHITE">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -61,28 +42,24 @@
                         <String fx:value="stylefont" />
                      </styleClass>
                   </JFXButton>
-                  <ScrollPane layoutX="128.0" layoutY="225.0" prefHeight="370.0" prefWidth="994.0" styleClass="stylefont">
-                     <content>
-                        <AnchorPane layoutX="70.0" layoutY="304.0" minHeight="0.0" minWidth="0.0" prefHeight="370.0" prefWidth="994.0">
-                           <children>
-                              <TableView fx:id="TableAlmacen2" prefHeight="370.0" prefWidth="994.0" styleClass="tabledesing">
-                                 <columns>
-                                    <TableColumn fx:id="tbCodigo" editable="false" prefWidth="82.39999389648438" styleClass="TableColumn" text="Codigo" />
-                                    <TableColumn fx:id="tbNombres" editable="false" prefWidth="130.4000244140625" styleClass="TableColumn" text="Nombres" />
-                                    <TableColumn fx:id="tbApellidos" editable="false" prefWidth="124.0" styleClass="TableColumn" text="Apellidos" />
-                                    <TableColumn fx:id="tbSexo" editable="false" prefWidth="61.5999755859375" styleClass="TableColumn" text="Sexo" />
-                                    <TableColumn fx:id="tbEdad" editable="false" minWidth="0.0" prefWidth="56.79998779296875" styleClass="TableColumn" text="Edad" />
-                                    <TableColumn fx:id="tbDireccion" editable="false" prefWidth="106.4000244140625" styleClass="TableColumn" text="Direccion" />
-                                    <TableColumn fx:id="tbDni" editable="false" minWidth="0.0" prefWidth="92.79998779296875" styleClass="TableColumn" text="DNI" />
-                                    <TableColumn fx:id="tbRuc" editable="false" prefWidth="92.79998779296875" styleClass="TableColumn" text="RUC" />
-                                    <TableColumn fx:id="tbCelular" editable="false" minWidth="0.0" prefWidth="106.4000244140625" styleClass="TableColumn" text="Celular" />
-                                    <TableColumn fx:id="tbCorreo" editable="false" minWidth="0.0" prefWidth="140.800048828125" styleClass="TableColumn" text="Correo" />
-                                 </columns>
-                              </TableView>
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </ScrollPane>
+                  <AnchorPane layoutX="77.0" layoutY="170.0" minHeight="0.0" minWidth="0.0" prefHeight="370.0" prefWidth="994.0" styleClass="stylefont">
+                     <children>
+                        <TableView fx:id="TableClientes" prefHeight="370.0" prefWidth="994.0" styleClass="tabledesing">
+                           <columns>
+                              <TableColumn fx:id="tbCodigo" editable="false" prefWidth="82.39999389648438" styleClass="TableColumn" text="Codigo" />
+                              <TableColumn fx:id="tbNombres" editable="false" prefWidth="130.4000244140625" styleClass="TableColumn" text="Nombres" />
+                              <TableColumn fx:id="tbApellidos" editable="false" prefWidth="124.0" styleClass="TableColumn" text="Apellidos" />
+                              <TableColumn fx:id="tbDni" editable="false" minWidth="0.0" prefWidth="81.5999755859375" styleClass="TableColumn" text="DNI" />
+                              <TableColumn fx:id="tbRuc" editable="false" prefWidth="92.79998779296875" styleClass="TableColumn" text="RUC" />
+                              <TableColumn fx:id="tbSexo" editable="false" prefWidth="61.5999755859375" styleClass="TableColumn" text="Sexo" />
+                              <TableColumn fx:id="tbFecha" editable="false" minWidth="0.0" prefWidth="64.0" styleClass="TableColumn" text="Fecha" />
+                              <TableColumn fx:id="tbDireccion" editable="false" prefWidth="104.0" styleClass="TableColumn" text="Direccion" />
+                              <TableColumn fx:id="tbCelular" editable="false" minWidth="0.0" prefWidth="100.800048828125" styleClass="TableColumn" text="Celular" />
+                              <TableColumn fx:id="tbCorreo" editable="false" minWidth="0.0" prefWidth="152.00018310546875" styleClass="TableColumn" text="Correo" />
+                           </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
                </children>
             </Pane>
          </children>
@@ -102,12 +79,12 @@
                                  <stops>
                                     <Stop>
                                        <color>
-                                          <Color red="0.003921568859368563" green="0.7568627595901489" blue="0.572549045085907" />
+                                          <Color blue="0.572549045085907" green="0.7568627595901489" red="0.003921568859368563" />
                                        </color>
                                     </Stop>
                                     <Stop offset="1.0">
                                        <color>
-                                          <Color red="0.2666666805744171" green="0.8313725590705872" blue="0.6627451181411743" />
+                                          <Color blue="0.6627451181411743" green="0.8313725590705872" red="0.2666666805744171" />
                                        </color>
                                     </Stop>
                                  </stops>

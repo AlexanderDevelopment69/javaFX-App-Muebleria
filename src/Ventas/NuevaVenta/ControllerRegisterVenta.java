@@ -5,6 +5,7 @@ package Ventas.NuevaVenta;
 import Almacen.Categorias.ModelTableCategoria;
 import Almacen.Fabricacion.CMProducto.ModelProducto;
 
+import Almacen.Fabricacion.ModelTableAlmacen;
 import ConnectionMySQL.ConnectionMYSQL;
 import Proveedores.ModelTableProveedor;
 import Ventas.NuevaVenta.CMVendedor.ModelVendedor;
@@ -84,6 +85,9 @@ public class ControllerRegisterVenta implements Initializable {
     private JFXTextField plazas;
 
     @FXML
+    private JFXTextField stock;
+
+    @FXML
     private TableView<ModelTableVentas> TableVentas;
 
     @FXML
@@ -119,7 +123,6 @@ public class ControllerRegisterVenta implements Initializable {
     @FXML
     private TableView<ModelTableVentas> TableTotal;
 
-
     @FXML
     private TableColumn<?, ?> tbCodigo2;
 
@@ -138,16 +141,14 @@ public class ControllerRegisterVenta implements Initializable {
     @FXML
     private TableColumn<?, ?> tbFecha2;
 
-
-
     @FXML
-    private JFXTextField infTotal;
+    private JFXTextField infCantidad;
 
     @FXML
     private JFXTextField infDscuento;
 
     @FXML
-    private JFXTextField infCantidad;
+    private JFXTextField infTotal;
 
     @FXML
     private JFXTextField browser;
@@ -223,6 +224,57 @@ public class ControllerRegisterVenta implements Initializable {
 
         }
 
+
+
+        //Disminuir productos para actualizar Stock
+
+//        try {
+//
+//            Cantidad = Integer.parseInt(CantidadPrueba);
+//
+//            ModelTableVentas p = new ModelTableVentas(Producto,Cantidad);
+//            ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
+//            Connection connection = ConnectionClass.getConnection();
+//            pst = connection.prepareStatement("update productos set stock=? + stock where producto=?");
+//            pst.setInt(1, Cantidad*-1);
+//            pst.setString(2, p.getProducto());
+//            pst.executeUpdate();
+////                Nuevo();
+//
+//        } catch (SQLException ioe) {
+//            ioe.printStackTrace();
+//        }
+
+
+//        try {
+//
+////            Cantidad = Integer.parseInt(CantidadPrueba);
+////            ModelTableVentas p = new ModelTableVentas(Producto,Cantidad);
+//            ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
+//            Connection connection = ConnectionClass.getConnection();
+//
+//            for (int i = 0; i < TableVentas.getItems().size(); i++) {
+//                pst = connection.prepareStatement("update productos set stock=? + stock where producto=?");
+//
+////              pst.setInt(1, Cantidad * -1);
+//                pst.setInt(1,TableVentas.getItems().get(i).getCantidad());
+//                System.out.println(TableVentas.getItems().get(i).getCantidad());
+//                pst.setString(2,TableVentas.getItems().get(i).getProducto());
+//                System.out.println(TableVentas.getItems().get(i).getProducto());
+////                pst.setString(2, p.getProducto());
+//                pst.executeUpdate();
+////                Nuevo();
+//            }
+//        } catch (SQLException ioe) {
+//            ioe.printStackTrace();
+//        }
+
+
+
+
+
+
+
     }
 
     public double TotalImporte(){
@@ -251,26 +303,18 @@ public class ControllerRegisterVenta implements Initializable {
 
 
 
-    @FXML
-    void Buscador(KeyEvent event) {
-
-    }
 
     @FXML
     void Cancelar(MouseEvent event) {
         TableVentas.getItems().clear();
     }
 
-    @FXML
-    void Eliminar(MouseEvent event) {
 
-    }
 
 
 
     @FXML
     void GenerarVenta(MouseEvent event) {
-
         String Cliente;
         String Vendedor;
         double Total;
@@ -300,6 +344,7 @@ public class ControllerRegisterVenta implements Initializable {
                 MostrarVentasTabla();
                 MostrarValidAltert();
                 Nuevo();
+                connection.close();
             } catch (SQLException ioe) {
                 ioe.printStackTrace();
             }
@@ -322,26 +367,42 @@ public class ControllerRegisterVenta implements Initializable {
                     pst.executeUpdate();
                     obtenerIdVenta();
 
+
 //            MostrarValidAltert();
 //            Nuevo()
 
                 }
+
+                //Disminuir stock de productos
+                for (int i = 0; i < TableVentas.getItems().size(); i++) {
+                    pst = connection.prepareStatement("update productos set stock=? + stock where producto=?");
+
+//                  pst.setInt(1, Cantidad * -1);
+                    pst.setInt(1,TableVentas.getItems().get(i).getCantidad()*-1);
+//                    System.out.println(TableVentas.getItems().get(i).getCantidad());
+                    pst.setString(2,TableVentas.getItems().get(i).getProducto());
+//                    System.out.println(TableVentas.getItems().get(i).getProducto());
+//                   pst.setString(2, p.getProducto());
+                    pst.executeUpdate();
+
+                }
                 TableVentas.getItems().clear();
+                connection.close();
             } catch (SQLException ioe) {
                 ioe.printStackTrace();
             }
+
+//
+//                for (int i = 0; i < TableVentas.getItems().size(); i++) {
+//                    System.out.println(TableVentas.getItems().get(i).getCantidad());
+//                    System.out.println(TableVentas.getItems().get(i).getProducto());
+//
+//                }
 
 
 
 
         }
-
-
-
-
-
-
-
 
     }
 
@@ -358,7 +419,7 @@ public class ControllerRegisterVenta implements Initializable {
                idVenta.setText(String.valueOf(rs.getInt(1)));
                Venta=rs.getInt(1);
             }
-
+            connection.close();
 
         } catch (SQLException ioe) {
             ioe.printStackTrace();
@@ -403,7 +464,7 @@ public void CompletarInfo(String valor){
 
             ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
             Connection connection = ConnectionClass.getConnection();
-            pst = connection.prepareStatement("select productos.codProducto,productos.marca,productos.precio,categoria.catNombre,productos.modelo,productos.plazas from productos inner join categoria on categoria.catNombre=productos.codTipo  where producto like '%"+valor+"%'");
+            pst = connection.prepareStatement("select productos.codProducto,productos.marca,productos.precio,categoria.catNombre,productos.modelo,productos.plazas,productos.stock from productos inner join categoria on categoria.catNombre=productos.codTipo  where producto like '%"+valor+"%'");
 
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
@@ -413,14 +474,17 @@ public void CompletarInfo(String valor){
                 tipo.setText(rs.getString("catNombre"));
                 modelo.setText(rs.getString("modelo"));
                 plazas.setText(rs.getString("plazas"));
+                stock.setText(rs.getString("stock"));
 
             }
+            connection.close();
             codProducto.setStyle("-fx-text-fill:#644EFF");
             marca.setStyle("-fx-text-fill:#644EFF ");
             precio.setStyle("-fx-text-fill:#644EFF ");
             tipo.setStyle("-fx-text-fill:#644EFF ");
             modelo.setStyle("-fx-text-fill:#644EFF ");
             plazas.setStyle("-fx-text-fill:#644EFF ");
+            stock.setStyle("-fx-text-fill: #644EFF");
 
         } catch (Exception ex) {
             System.out.println("" + ex);
@@ -503,6 +567,7 @@ public void CompletarInfo(String valor){
         tipo.setText("");
         modelo.setText("");
         plazas.setText("");
+        stock.setText("");
         infTotal.setText("");
         infDscuento.setText("");
         infCantidad.setText("");

@@ -35,7 +35,7 @@
          </VBox.margin>
       </Label>
       <JFXButton onAction="#onDone" prefHeight="39.0" prefWidth="161.0" style="-fx-font-size: 16; -fx-background-color: #00F1C5;" styleClass="stylefont" text="Continuar" textFill="WHITE" />
-      <Label styleClass="stylefont" text="Proveedor eliminado correctamente" />
+      <Label styleClass="stylefont" text="Cliente eliminado correctamente" />
    </children>
    <padding>
       <Insets bottom="20.0" top="10.0" />

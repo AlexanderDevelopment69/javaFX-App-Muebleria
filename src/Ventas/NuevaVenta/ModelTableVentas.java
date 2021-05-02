@@ -42,16 +42,36 @@ PreparedStatement pst;
     String IdCliente;
     double Total;
     Timestamp Fecha;
+
+
 //Constructor de la tabla 2
-public ModelTableVentas(int venta,String nombre,String idcliente,double descuento,double total,Timestamp fecha){
-    Venta=venta;
+    public ModelTableVentas(int venta, String idCliente, String nombre, double total, double descuento, Timestamp fecha) {
+    Venta =venta;
+    IdCliente=idCliente;
     Nombre=nombre;
-    IdCliente=idcliente;
-    Descuento = descuento;
     Total=total;
+    Descuento=descuento;
     Fecha=fecha;
 
-}
+    }
+
+
+    public ModelTableVentas(String producto, int cantidad) {
+    Producto=producto;
+    Cantidad=cantidad;
+    }
+
+//Contructor de detalleventas
+    public ModelTableVentas(int venta, String producto, int cantidad, double precio, double descuento, double importe) {
+        Venta=venta;
+        Producto=producto;
+        Cantidad=cantidad;
+        Precio=precio;
+        Descuento=descuento;
+        Importe=importe;
+    }
+
+
 
     public String getNombre() {
         return Nombre;
@@ -232,7 +252,7 @@ public ModelTableVentas(int venta,String nombre,String idcliente,double descuent
 
             ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
             Connection connection = ConnectionClass.getConnection();
-            pst= connection.prepareStatement("(select venta.idVenta,venta.idCliente,usuario.nombre,venta.total,venta.descuento,venta.fecha from venta inner join usuario on usuario.nombre=venta.idVendedor order by idVenta desc limit 6 ) order by idVenta asc");
+            pst= connection.prepareStatement("(select venta.idVenta,venta.idCliente,usuario.nombre,venta.total,venta.descuento,venta.fecha from venta inner join usuario on usuario.dni=venta.idVendedor order by idVenta desc limit 6 ) order by idVenta asc");
 
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
@@ -247,12 +267,105 @@ public ModelTableVentas(int venta,String nombre,String idcliente,double descuent
                 ModelTableVentas c=new ModelTableVentas(Venta,IdCliente,Nombre,Total,Descuento,Fecha);
                 obs.add(c);
             }
+            connection.close();
         } catch (Exception ex) {
             System.out.println("" + ex);
         }
         return obs;
     }
 
+
+
+    //Obtener informe de ventas a la tabla del dashboard PRINCIPAL
+    public ObservableList<ModelTableVentas> getVentas() throws ClassNotFoundException {
+        ObservableList<ModelTableVentas> obs = FXCollections.observableArrayList();
+
+        try {
+
+            ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
+            Connection connection = ConnectionClass.getConnection();
+            pst= connection.prepareStatement("select venta.idVenta,venta.idCliente,usuario.nombre,venta.total,venta.descuento,venta.fecha from venta inner join usuario on usuario.dni=venta.idVendedor  order by idVenta asc");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+
+                Venta=rs.getInt("idVenta");
+                IdCliente=rs.getString("idCliente");
+                Nombre=rs.getString("nombre");
+                Total=rs.getDouble("total");
+                Descuento=rs.getDouble("descuento");
+                Fecha=rs.getTimestamp("fecha");
+
+                ModelTableVentas c=new ModelTableVentas(Venta,IdCliente,Nombre,Total,Descuento,Fecha);
+                obs.add(c);
+            }
+            connection.close();
+        } catch (Exception ex) {
+            System.out.println("" + ex);
+        }
+        return obs;
+    }
+
+    //Obtener informe de detalle de ventas a la tabla del dashboard
+    public ObservableList<ModelTableVentas> getDetalleVenta() throws ClassNotFoundException {
+        ObservableList<ModelTableVentas> obs = FXCollections.observableArrayList();
+
+        try {
+
+            ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
+            Connection connection = ConnectionClass.getConnection();
+            pst= connection.prepareStatement("select detalleventa.idVenta,detalleventa.producto,detalleventa.cantidad,detalleventa.precioVenta,detalleventa.descuento,detalleventa.importe from detalleventa  order by idVenta asc");
+//            pst= connection.prepareStatement("select venta.idVenta,venta.idCliente,usuario.nombre,venta.total,venta.descuento,DATE_FORMAT(venta.fecha,'%d/%m/%Y %H:%i:%s') as fechaConvertida from venta inner join usuario on usuario.dni=venta.idVendedor  order by idVenta asc");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+
+                Venta=rs.getInt("idVenta");
+                Producto=rs.getString("producto");
+                Cantidad=rs.getInt("cantidad");
+                Precio=rs.getDouble("precioVenta");
+                Descuento=rs.getDouble("descuento");
+                Importe=rs.getInt("importe");
+
+                ModelTableVentas c=new ModelTableVentas(Venta,Producto,Cantidad,Precio,Descuento,Importe);
+                obs.add(c);
+
+            }
+            connection.close();
+        } catch (Exception ex) {
+            System.out.println("" + ex);
+        }
+        return obs;
+    }
+
+    public ObservableList<ModelTableVentas> getBuscadors (String valor) throws ClassNotFoundException {
+
+        ObservableList<ModelTableVentas> obs = FXCollections.observableArrayList();
+
+        try {
+
+            ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
+            Connection connection = ConnectionClass.getConnection();
+            pst = connection.prepareStatement("select * from venta inner join usuario on usuario.dni=venta.idVendedor where idVenta like '%"+valor+"%' or nombre like '%"+valor+"%' or idCliente like '%"+valor+"%' order by idVenta asc");
+            ResultSet rs = pst.executeQuery();
+            while (rs.next()) {
+
+                Venta=rs.getInt("idVenta");
+                IdCliente=rs.getString("idCliente");
+                Nombre=rs.getString("nombre");
+                Total=rs.getDouble("total");
+                Descuento=rs.getDouble("descuento");
+                Fecha=rs.getTimestamp("fecha");
+
+                ModelTableVentas c=new ModelTableVentas(Venta,IdCliente,Nombre,Total,Descuento,Fecha);
+
+//                ModelTableAlmacen c=new ModelTableAlmacen(Fecha);
+                obs.add(c);
+            }
+            connection.close();
+        } catch (Exception ex) {
+            System.out.println("" + ex);
+        }
+        return obs;
+    }
 
 
 }

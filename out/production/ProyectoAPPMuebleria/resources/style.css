@@ -134,6 +134,7 @@
 }
 .TableColumn{
     -fx-background-color:  white;
+    /*-fx-background-color: #00115C;*/
     -fx-text-fill: black;
 
 }
@@ -199,9 +200,9 @@
 
 .table-view .column-header .label {
     -fx-text-fill : black;
-
+    /*-fx-text-fill : white;*/
     -fx-padding : 8 5 8 5 ;
-
+ ;
 }
 .table-column{
     -fx-alignment: center;
@@ -239,4 +240,91 @@
     -fx-background-color: #136CC1;
     -fx-font-size: 13px;
 
+}
+
+/*SplitUsuario*/
+.split-menu-button{
+    -fx-background-color: transparent;
+    -fx-border-width: 0 0 2 0px;
+    -fx-border-color: #644EFF;
+
+
+}
+.split-menu-button .arrow-button {
+    -fx-background-color: #1A1F30;
+
+
+
+}
+.split-menu-button .label {
+    -fx-background-color:transparent;
+
+
+}
+
+.split-menu-button .menu-item {
+    -fx-font-size: 12px;
+    -fx-pref-width: 140;
+    -fx-pref-height: 35;
+
+}
+
+
+
+
+
+
+
+/*.table-view{*/
+/*    -fx-base: #2A2A2A;*/
+/*    -fx-control-inner-background: #2A2A2A;*/
+/*    -fx-background-color:transparent;*/
+/*    -fx-table-cell-border-color: transparent;*/
+/*    -fx-padding: 1;*/
+/*    -fx-selection-bar-non-focused: #008287 ;*/
+/*}*/
+
+/*.table-view .column-header-background{*/
+/*    -fx-background-color: #1d1d1d;*/
+/*    -fx-border-color: transparent transparent rgba(255,255,255,0.3) transparent;*/
+/*    -fx-border-width: 1;*/
+/*    -fx-background-insets: 0;*/
+/*}*/
+
+/*.table-view .column-header, .table-view .filler {*/
+/*    -fx-background-color: transparent;*/
+/*    -fx-size: 25;*/
+/*    -fx-border-width: 0 0 0 0;*/
+/*    -fx-text-fill: #d8d8d8;*/
+/*}*/
+/*.table-view .column-header .label {*/
+/*    -fx-font-size: 13px;*/
+/*    -fx-font-weight:bold;*/
+/*    -fx-font-family:"Segoe UI", Helvetica, Arial, sans-serif;*/
+/*    -fx-text-fill: #d8d8d8;*/
+/*    -fx-alignment: center-left;*/
+/*    -fx-opacity: 1;*/
+/*}*/
+
+/*.table-cell {*/
+/*    -fx-font-size: 14px;*/
+/*    -fx-font-family:"Segoe UI", Helvetica, Arial, sans-serif;*/
+/*    -fx-text-fill: #d8d8d8;*/
+/*    -fx-alignment: center-left;*/
+/*}*/
+
+/*.table-view:focused .table-row-cell:filled:focused:selected {*/
+/*    -fx-background-color: #008287;*/
+/*}*/
+
+
+
+.default-color0.chart-bar {
+    -fx-bar-fill: #6E51EB;
+
+}
+.default-color0.chart-legend{
+
+    -fx-background-color: black;
+    -fx-legend-visible: false;
 }

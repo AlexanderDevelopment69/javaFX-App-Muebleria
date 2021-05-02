@@ -2,7 +2,14 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.Pane?>
@@ -12,7 +19,7 @@
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: transparent;" styleClass="stylefont" stylesheets="@../resources/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DashboardPrincipal.ControllerPrincipalMenu">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" style="-fx-background-color: transparent;" styleClass="stylefont" stylesheets="@../resources/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="DashboardPrincipal.ControllerPrincipalMenu">
    <left>
       <AnchorPane prefHeight="700.0" style="-fx-background-color: #1A1F30;" BorderPane.alignment="CENTER">
          <children>
@@ -27,12 +34,12 @@
                            <stops>
                               <Stop>
                                  <color>
-                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                    <Color blue="1.0" green="0.30588236451148987" red="0.3921568691730499" />
                                  </color>
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                    <Color blue="1.0" green="0.30588236451148987" red="0.3921568691730499" />
                                  </color>
                               </Stop>
                            </stops>
@@ -45,12 +52,12 @@
                            <stops>
                               <Stop>
                                  <color>
-                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                    <Color blue="1.0" green="0.30588236451148987" red="0.3921568691730499" />
                                  </color>
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                    <Color blue="1.0" green="0.30588236451148987" red="0.3921568691730499" />
                                  </color>
                               </Stop>
                            </stops>
@@ -66,12 +73,12 @@
                            <stops>
                               <Stop>
                                  <color>
-                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                    <Color blue="1.0" green="0.30588236451148987" red="0.3921568691730499" />
                                  </color>
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                    <Color blue="1.0" green="0.30588236451148987" red="0.3921568691730499" />
                                  </color>
                               </Stop>
                            </stops>
@@ -87,17 +94,17 @@
                            <stops>
                               <Stop>
                                  <color>
-                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                    <Color blue="1.0" green="0.30588236451148987" red="0.3921568691730499" />
                                  </color>
                               </Stop>
                               <Stop offset="0.007633587786259542">
                                  <color>
-                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                    <Color blue="1.0" green="0.30588236451148987" red="0.3921568691730499" />
                                  </color>
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                    <Color blue="1.0" green="0.30588236451148987" red="0.3921568691730499" />
                                  </color>
                               </Stop>
                            </stops>
@@ -110,17 +117,17 @@
                            <stops>
                               <Stop>
                                  <color>
-                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                    <Color blue="1.0" green="0.30588236451148987" red="0.3921568691730499" />
                                  </color>
                               </Stop>
                               <Stop offset="0.007633587786259542">
                                  <color>
-                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                    <Color blue="1.0" green="0.30588236451148987" red="0.3921568691730499" />
                                  </color>
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                    <Color blue="1.0" green="0.30588236451148987" red="0.3921568691730499" />
                                  </color>
                               </Stop>
                            </stops>
@@ -133,17 +140,17 @@
                            <stops>
                               <Stop>
                                  <color>
-                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                    <Color blue="1.0" green="0.30588236451148987" red="0.3921568691730499" />
                                  </color>
                               </Stop>
                               <Stop offset="0.007633587786259542">
                                  <color>
-                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                    <Color blue="1.0" green="0.30588236451148987" red="0.3921568691730499" />
                                  </color>
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                    <Color blue="1.0" green="0.30588236451148987" red="0.3921568691730499" />
                                  </color>
                               </Stop>
                            </stops>
@@ -156,17 +163,17 @@
                            <stops>
                               <Stop>
                                  <color>
-                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                    <Color blue="1.0" green="0.30588236451148987" red="0.3921568691730499" />
                                  </color>
                               </Stop>
                               <Stop offset="0.007633587786259542">
                                  <color>
-                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                    <Color blue="1.0" green="0.30588236451148987" red="0.3921568691730499" />
                                  </color>
                               </Stop>
                               <Stop offset="1.0">
                                  <color>
-                                    <Color red="0.3921568691730499" green="0.30588236451148987" blue="1.0" />
+                                    <Color blue="1.0" green="0.30588236451148987" red="0.3921568691730499" />
                                  </color>
                               </Stop>
                            </stops>
@@ -183,6 +190,25 @@
                   </JFXButton>
                </children>
             </VBox>
+            <SplitMenuButton fx:id="SplitUsuario" layoutX="17.0" layoutY="39.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="164.0" styleClass="stylefont" textFill="WHITE">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="ver perfil                    " />
+                  <MenuItem mnemonicParsing="false" onAction="#exit" text="Salir" />
+               </items>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../resources/Images/usuario.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="-5.0" />
+               </padding>
+            </SplitMenuButton>
          </children>
       </AnchorPane>
    </left>
@@ -191,10 +217,20 @@
          <children>
             <StackPane prefHeight="50.0" prefWidth="880.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
             <Pane />
-            <Label layoutX="57.0" layoutY="84.0" prefHeight="17.0" prefWidth="239.0" styleClass="stylefont" text="Hola, aquí podrá registrar los productos" />
-            <StackPane layoutX="57.0" layoutY="176.0" prefHeight="278.0" prefWidth="358.0">
+            <Label layoutX="57.0" layoutY="50.0" prefHeight="17.0" prefWidth="239.0" styleClass="stylefont" text="Bienvenido" />
+            <StackPane layoutX="57.0" layoutY="101.0" prefHeight="278.0" prefWidth="358.0">
                <children>
-                  <Pane prefHeight="301.0" prefWidth="415.0" style="-fx-background-color: white;" />
+                  <Pane prefHeight="301.0" prefWidth="415.0" style="-fx-background-color: white;">
+                     <children>
+                        <BarChart fx:id="VentasChart" layoutX="8.0" layoutY="19.0" prefHeight="253.0" prefWidth="335.0" title="Ventas">
+                          <xAxis>
+                            <CategoryAxis label="Fecha" side="BOTTOM" fx:id="x" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis fx:id="y" label="Venta" side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                     </children></Pane>
                </children>
             </StackPane>
             <StackPane layoutX="470.0" layoutY="184.0" prefHeight="278.0" prefWidth="407.0" style="-fx-background-color: yellow;">

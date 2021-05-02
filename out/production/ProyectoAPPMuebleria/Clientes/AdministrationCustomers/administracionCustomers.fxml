@@ -20,7 +20,7 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="stackPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../resources/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Clientes.AdministrationCustomers.ControllerAdministrationCustomers">
+<BorderPane fx:id="stackPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../resources/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <AnchorPane style="-fx-background-color: #F7F8FC;" BorderPane.alignment="CENTER">
          <padding>
@@ -101,12 +101,12 @@
                                  <stops>
                                     <Stop>
                                        <color>
-                                          <Color red="0.003921568859368563" green="0.7568627595901489" blue="0.572549045085907" />
+                                          <Color blue="0.572549045085907" green="0.7568627595901489" red="0.003921568859368563" />
                                        </color>
                                     </Stop>
                                     <Stop offset="1.0">
                                        <color>
-                                          <Color red="0.2666666805744171" green="0.8313725590705872" blue="0.6627451181411743" />
+                                          <Color blue="0.6627451181411743" green="0.8313725590705872" red="0.2666666805744171" />
                                        </color>
                                     </Stop>
                                  </stops>

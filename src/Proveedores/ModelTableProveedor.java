@@ -86,6 +86,7 @@ public class ModelTableProveedor {
                 ModelTableProveedor c=new ModelTableProveedor(Ruc,Empresa,Direccion,Celular,Correo);
                 obs.add(c);
             }
+            connection.close();
         } catch (Exception ex) {
             System.out.println("" + ex);
         }
@@ -109,14 +110,12 @@ public class ModelTableProveedor {
                  Celular = rs.getString("proCelular");
                  Correo=rs.getString("proCorreo");
 
-
-
-
                 ModelTableProveedor c = new ModelTableProveedor(Ruc,Empresa,Direccion,Celular,Correo);
 
 //                ModelTableAlmacen c=new ModelTableAlmacen(Fecha);
                 obs.add(c);
             }
+            connection.close();
         } catch (Exception ex) {
             System.out.println("" + ex);
         }

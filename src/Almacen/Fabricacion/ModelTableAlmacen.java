@@ -223,6 +223,7 @@ public ModelTableAlmacen(int id, String producto, int cantidad, double total, St
 //                ModelTableAlmacen c=new ModelTableAlmacen(Fecha);
                 obs.add(c);
             }
+            connection.close();
         } catch (Exception ex) {
             System.out.println("" + ex);
         }
@@ -281,6 +282,7 @@ public ModelTableAlmacen(int id, String producto, int cantidad, double total, St
 //                ModelTableAlmacen c=new ModelTableAlmacen(Fecha);
                 obs.add(c);
             }
+            connection.close();
         } catch (Exception ex) {
             System.out.println("" + ex);
         }
@@ -316,6 +318,7 @@ public ModelTableAlmacen(int id, String producto, int cantidad, double total, St
 //                ModelTableAlmacen c=new ModelTableAlmacen(Fecha);
                 obs.add(c);
             }
+            connection.close();
         } catch (Exception ex) {
             System.out.println("" + ex);
         }
@@ -350,6 +353,7 @@ public ModelTableAlmacen(int id, String producto, int cantidad, double total, St
 //                ModelTableAlmacen c=new ModelTableAlmacen(Fecha);
                 obs.add(c);
             }
+            connection.close();
         } catch (Exception ex) {
             System.out.println("" + ex);
         }

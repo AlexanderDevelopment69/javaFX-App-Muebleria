@@ -67,13 +67,10 @@ public class ModelCategoria {
 
                 String Tipo=rs.getString("catNombre");
                 ModelCategoria e=new ModelCategoria(Tipo);
-
-
-
-
 //                ModelTableAlmacen c=new ModelTableAlmacen(Fecha);
                 obs.add(e);
             }
+            connection.close();
         } catch (Exception ex) {
             System.out.println("" + ex);
         }

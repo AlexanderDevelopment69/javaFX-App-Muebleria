@@ -14,7 +14,6 @@
       <element id="extracted-dir" path="D:/herramientas/openjfx-15.0.1_windows-x64_bin-sdk/javafx-sdk-15.0.1/lib/javafx.swing.jar" path-in-jar="/" />
       <element id="extracted-dir" path="D:/herramientas/openjfx-15.0.1_windows-x64_bin-sdk/javafx-sdk-15.0.1/lib/javafx.controls.jar" path-in-jar="/" />
       <element id="extracted-dir" path="D:/herramientas/openjfx-15.0.1_windows-x64_bin-sdk/javafx-sdk-15.0.1/lib/javafx.graphics.jar" path-in-jar="/" />
-      <element id="library" level="project" name="lib" />
       <element id="library" level="project" name="jfoenix-9.0.10" />
       <element id="library" level="project" name="mysql-connector-java-8.0.23" />
       <element id="file-copy" path="D:/herramientas/openjfx-15.0.1_windows-x64_bin-sdk/javafx-sdk-15.0.1/bin/api-ms-win-core-console-l1-1-0.dll" />

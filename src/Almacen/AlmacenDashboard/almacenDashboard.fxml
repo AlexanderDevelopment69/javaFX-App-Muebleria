@@ -2,7 +2,6 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -17,9 +16,8 @@
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.paint.LinearGradient?>
 <?import javafx.scene.paint.Stop?>
-<?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="stackPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../resources/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Almacen.AlmacenDashboard.ControllerAlmacenDashboard">
+<BorderPane fx:id="stackPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" stylesheets="@../../resources/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Almacen.AlmacenDashboard.ControllerAlmacenDashboard">
    <center>
       <AnchorPane style="-fx-background-color: #F7F8FC;" BorderPane.alignment="CENTER">
          <padding>
@@ -28,43 +26,26 @@
          <children>
             <Pane>
                <children>
-                  <Label layoutX="43.0" layoutY="36.0" prefHeight="17.0" prefWidth="239.0" styleClass="stylefont" text="Ver almacen" />
-                  <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="59.0" layoutY="527.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../../resources/Images/lupa.png" />
-                     </image>
-                  </ImageView>
+                  <Label layoutX="43.0" layoutY="36.0" prefHeight="17.0" prefWidth="305.0" styleClass="stylefont" text="Cantidad de productos disponibles para venta." />
                   <Label layoutX="77.0" layoutY="77.0" prefHeight="50.0" prefWidth="280.0" style="-fx-background-color: white; -fx-background-radius: 30;" />
-                  <JFXTextField fx:id="browser" focusColor="WHITE" layoutX="118.0" layoutY="86.0" opacity="0.8" prefHeight="34.0" prefWidth="230.0" promptText="Buscar producto" unFocusColor="WHITE" />
+                  <JFXTextField fx:id="browser" focusColor="WHITE" layoutX="118.0" layoutY="86.0" onKeyReleased="#Buscador" opacity="0.8" prefHeight="34.0" prefWidth="230.0" promptText="Buscar producto" unFocusColor="WHITE" />
                   <ImageView fitHeight="16.0" fitWidth="21.0" layoutX="96.0" layoutY="95.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../resources/Images/lupa.png" />
                      </image>
                   </ImageView>
-                  <JFXButton layoutX="395.0" layoutY="79.0" onMouseClicked="#Buscar" prefHeight="45.0" prefWidth="118.0" style="-fx-background-radius: 30;" text="Buscar" textFill="WHITE">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <styleClass>
-                        <String fx:value="buttonbuscar" />
-                        <String fx:value="stylefont" />
-                     </styleClass>
-                  </JFXButton>
-                  <AnchorPane layoutX="77.0" layoutY="165.0" minHeight="0.0" minWidth="0.0" prefHeight="473.0" prefWidth="994.0" styleClass="stylefont">
+                  <AnchorPane layoutX="77.0" layoutY="165.0" minHeight="0.0" minWidth="0.0" prefHeight="473.0" prefWidth="779.0" styleClass="stylefont">
                      <children>
-                        <TableView fx:id="TableAlmacen2" prefHeight="473.0" prefWidth="994.0" styleClass="tabledesing">
+                        <TableView fx:id="TableAlmacenTotal" prefHeight="474.0" prefWidth="779.0" styleClass="tabledesing">
                            <columns>
-                              <TableColumn fx:id="tbId2" editable="false" prefWidth="63.2000732421875" styleClass="TableColumn" text="Codigo" />
-                              <TableColumn fx:id="tbProducto2" editable="false" prefWidth="130.4000244140625" styleClass="TableColumn" text="Producto" />
-                              <TableColumn fx:id="tbMarca2" editable="false" prefWidth="96.79998779296875" styleClass="TableColumn" text="Marca" />
-                              <TableColumn fx:id="tbTipo2" editable="false" prefWidth="102.4000244140625" styleClass="TableColumn" text="Tipo" />
-                              <TableColumn fx:id="tbModelo2" editable="false" minWidth="0.0" prefWidth="116.0" styleClass="TableColumn" text="Modelo" />
-                              <TableColumn fx:id="tbPlazas2" editable="false" minWidth="0.0" prefWidth="66.4000244140625" styleClass="TableColumn" text="Plazas" />
-                              <TableColumn fx:id="tbStock" editable="false" prefWidth="74.4000244140625" styleClass="TableColumn" text="Stock" />
-                              <TableColumn fx:id="tbPrecio2" editable="false" minWidth="0.0" prefWidth="81.60009765625" styleClass="TableColumn" text="Precio" />
-                              <TableColumn fx:id="tbTotal" editable="false" minWidth="0.0" prefWidth="69.5999755859375" styleClass="TableColumn" text="Total" />
-                              <TableColumn fx:id="tbProveedor2" editable="false" minWidth="0.0" prefWidth="88.0" styleClass="TableColumn" text="Proveedor" />
-                              <TableColumn fx:id="tbEstado2" editable="false" minWidth="0.0" prefWidth="102.4000244140625" styleClass="TableColumn" text="Estado" />
+                              <TableColumn fx:id="tbId" editable="false" prefWidth="63.2000732421875" styleClass="TableColumn" text="Codigo" />
+                              <TableColumn fx:id="tbProducto" editable="false" prefWidth="130.4000244140625" styleClass="TableColumn" text="Producto" />
+                              <TableColumn fx:id="tbMarca" editable="false" prefWidth="96.79998779296875" styleClass="TableColumn" text="Marca" />
+                              <TableColumn fx:id="tbTipo" editable="false" prefWidth="102.4000244140625" styleClass="TableColumn" text="Tipo" />
+                              <TableColumn fx:id="tbModelo" editable="false" minWidth="0.0" prefWidth="116.0" styleClass="TableColumn" text="Modelo" />
+                              <TableColumn fx:id="tbPlazas" editable="false" minWidth="0.0" prefWidth="66.4000244140625" styleClass="TableColumn" text="Plazas" />
+                              <TableColumn fx:id="tbStock" editable="false" prefWidth="91.199951171875" styleClass="TableColumn" text="Stock" />
+                              <TableColumn fx:id="tbTotal" editable="false" minWidth="0.0" prefWidth="108.800048828125" styleClass="TableColumn" text="Total de producto" />
                            </columns>
                         </TableView>
                      </children>
@@ -79,7 +60,7 @@
          <children>
             <Pane prefWidth="200.0" style="-fx-background-color: white;">
                <children>
-                  <JFXTextField fx:id="id1" focusColor="WHITE" layoutX="35.0" layoutY="10.0" opacity="0.8" prefHeight="34.0" prefWidth="197.0" promptText="Buscar" unFocusColor="WHITE" />
+                  <JFXTextField focusColor="WHITE" layoutX="35.0" layoutY="10.0" opacity="0.8" prefHeight="34.0" prefWidth="197.0" promptText="Buscar" unFocusColor="WHITE" />
                   <HBox layoutX="259.0" layoutY="-1.0" prefHeight="50.0" prefWidth="574.0" spacing="10.0" styleClass="stylefont">
                      <children>
                         <JFXButton onMouseClicked="#agregarProducto" prefHeight="50.0" prefWidth="134.0" styleClass="hBoxButtonUsers" text="Agregar productos">
@@ -88,12 +69,12 @@
                                  <stops>
                                     <Stop>
                                        <color>
-                                          <Color red="0.003921568859368563" green="0.7568627595901489" blue="0.572549045085907" />
+                                          <Color blue="0.572549045085907" green="0.7568627595901489" red="0.003921568859368563" />
                                        </color>
                                     </Stop>
                                     <Stop offset="1.0">
                                        <color>
-                                          <Color red="0.2666666805744171" green="0.8313725590705872" blue="0.6627451181411743" />
+                                          <Color blue="0.6627451181411743" green="0.8313725590705872" red="0.2666666805744171" />
                                        </color>
                                     </Stop>
                                  </stops>
@@ -106,12 +87,12 @@
                                  <stops>
                                     <Stop>
                                        <color>
-                                          <Color red="0.003921568859368563" green="0.7568627595901489" blue="0.572549045085907" />
+                                          <Color blue="0.572549045085907" green="0.7568627595901489" red="0.003921568859368563" />
                                        </color>
                                     </Stop>
                                     <Stop offset="1.0">
                                        <color>
-                                          <Color red="0.2666666805744171" green="0.8313725590705872" blue="0.6627451181411743" />
+                                          <Color blue="0.6627451181411743" green="0.8313725590705872" red="0.2666666805744171" />
                                        </color>
                                     </Stop>
                                  </stops>
@@ -124,12 +105,12 @@
                                  <stops>
                                     <Stop>
                                        <color>
-                                          <Color red="0.003921568859368563" green="0.7568627595901489" blue="0.572549045085907" />
+                                          <Color blue="0.572549045085907" green="0.7568627595901489" red="0.003921568859368563" />
                                        </color>
                                     </Stop>
                                     <Stop offset="1.0">
                                        <color>
-                                          <Color red="0.2666666805744171" green="0.8313725590705872" blue="0.6627451181411743" />
+                                          <Color blue="0.6627451181411743" green="0.8313725590705872" red="0.2666666805744171" />
                                        </color>
                                     </Stop>
                                  </stops>
@@ -142,12 +123,12 @@
                                  <stops>
                                     <Stop>
                                        <color>
-                                          <Color red="0.003921568859368563" green="0.7568627595901489" blue="0.572549045085907" />
+                                          <Color blue="0.572549045085907" green="0.7568627595901489" red="0.003921568859368563" />
                                        </color>
                                     </Stop>
                                     <Stop offset="1.0">
                                        <color>
-                                          <Color red="0.2666666805744171" green="0.8313725590705872" blue="0.6627451181411743" />
+                                          <Color blue="0.6627451181411743" green="0.8313725590705872" red="0.2666666805744171" />
                                        </color>
                                     </Stop>
                                  </stops>

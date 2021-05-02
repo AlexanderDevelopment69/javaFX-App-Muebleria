@@ -1,6 +1,7 @@
 package Proveedores;
 
 import Almacen.AgregarProducto.ModelTableProducto;
+import Almacen.Categorias.ModelTableCategoria;
 import ConnectionMySQL.ConnectionMYSQL;
 import com.jfoenix.controls.JFXDialog;
 import com.jfoenix.controls.JFXTextField;
@@ -18,6 +19,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -28,8 +30,7 @@ import java.util.ResourceBundle;
 
 
 public class ControllerRegisterProveedor implements Initializable {
-    @FXML
-    private JFXTextField browser;
+
     @FXML
     private StackPane n;
 
@@ -37,13 +38,22 @@ public class ControllerRegisterProveedor implements Initializable {
     private VBox validPane, invalidPane;
     @FXML
     public static JFXDialog validDialog, invalidDialog;
+
     @FXML
     private JFXTextField ruc;
 
     @FXML
     private JFXTextField empresa;
+
     @FXML
-    private JFXTextField correo;
+    private JFXTextField direccion;
+
+    @FXML
+    private JFXTextField celular;
+
+    @FXML
+    private JFXTextField browser;
+
     @FXML
     private TableView<ModelTableProveedor> TableProveedor;
 
@@ -58,13 +68,13 @@ public class ControllerRegisterProveedor implements Initializable {
 
     @FXML
     private TableColumn<?, ?> tbCelular;
-    @FXML
-    private TableColumn<?, ?> tbCorreo;
-    @FXML
-    private JFXTextField direccion;
 
     @FXML
-    private JFXTextField celular;
+    private TableColumn<?, ?> tbCorreo;
+
+    @FXML
+    private JFXTextField correo;
+
 
     PreparedStatement pst;
     private ObservableList<ModelTableProveedor> IngresarTableProveedor;
@@ -109,7 +119,7 @@ public class ControllerRegisterProveedor implements Initializable {
 
                  MostrarInvalidAlter();
 
-
+                connection.close();
                 }
                 else{
                     //Ingreso de datos a la base de datos
@@ -121,6 +131,7 @@ public class ControllerRegisterProveedor implements Initializable {
                         pst.setString(4,Celular);
                         pst.setString(5,Correo);
                         pst.executeUpdate();
+                        connection.close();
                         Nuevo();
                         //Alert que verifica si ya se registro la categoria
                         MostrarValidAltert();
@@ -149,17 +160,26 @@ public class ControllerRegisterProveedor implements Initializable {
 
     @FXML
     void Eliminar(MouseEvent event) throws SQLException {
-        ModelTableProveedor p=TableProveedor.getSelectionModel().getSelectedItem();
-        ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
-        Connection connection = ConnectionClass.getConnection();
-        pst= connection.prepareStatement("delete from proveedor where proRuc=?");
-        pst.setString(1,p.getRuc());
-        pst.executeUpdate();
-        MostrarValirAlertDeleted();
+        ModelTableProveedor p = TableProveedor.getSelectionModel().getSelectedItem();
+        if (p == null) {
+        } else {
 
+        try {
+            ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
+            Connection connection = ConnectionClass.getConnection();
+            pst = connection.prepareStatement("delete from proveedor where proRuc=?");
+            pst.setString(1, p.getRuc());
+            pst.executeUpdate();
+            connection.close();
+            MostrarValirAlertDeleted();
+            MostrarProveedorEnEnTabla();
+            Nuevo();
+            this.TableProveedor.refresh();
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Se esta usando el proveedor en una compra");
+        }
+    }
 
-        MostrarProveedorEnEnTabla();
-        this.TableProveedor.refresh();
     }
     public void CargarDatosBuscador(String valor) {
         try {
@@ -189,6 +209,69 @@ public class ControllerRegisterProveedor implements Initializable {
         String Buscar=this.browser.getText();
         CargarDatosBuscador(Buscar);
     }
+
+
+    @FXML
+    void Actualizar(MouseEvent event) throws SQLException {
+
+
+        String ProRuc,ProNombre,ProDireccion,ProCelular,ProCorreo;
+        ProRuc=ruc.getText();
+        ProNombre=empresa.getText();
+        ProDireccion=direccion.getText();
+        ProCelular=celular.getText();
+        ProCorreo=correo.getText();
+
+
+        //Selecionar items de la tabla
+        ModelTableProveedor p = TableProveedor.getSelectionModel().getSelectedItem();
+        if (p == null) {
+
+        } else {
+            //Conexion a la base de datos;
+            ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
+            Connection connection = ConnectionClass.getConnection();
+            pst = connection.prepareStatement("update proveedor set proRuc=?, proNombre=? ,proDireccion=?,proCelular=?,proCorreo=? where proRuc=?");
+            pst.setString(1, ProRuc);
+            pst.setString(2, ProNombre);
+            pst.setString(3, ProDireccion);
+            pst.setString(4, ProCelular);
+            pst.setString(5, ProCorreo);
+            pst.setString(6, p.getRuc());
+            pst.executeUpdate();
+            connection.close();
+//            MostrarValidAlertUpdate();
+//
+        MostrarProveedorEnEnTabla();
+
+
+            this.TableProveedor.refresh();
+        }
+
+
+
+
+    }
+
+    @FXML
+    void Seleccionar(MouseEvent event) {
+        ModelTableProveedor p=TableProveedor.getSelectionModel().getSelectedItem();
+
+        if(p==null){
+        }
+
+        else {
+
+            ruc.setText(p.getRuc());
+            empresa.setText(p.getEmpresa());
+            direccion.setText(p.getDireccion());
+            celular.setText(p.getCelular());
+            correo.setText(p.getCorreo());
+
+        }
+    }
+
+
     public void  MostrarValidAltert(){
         //Alert que verifica si ya se registro el proveedor
         try {

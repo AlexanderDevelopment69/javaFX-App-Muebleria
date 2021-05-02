@@ -90,7 +90,7 @@ public class ControllerRegiterTM implements Initializable {
 
 
     @FXML
-    void agregartipo(MouseEvent event) throws SQLException {
+    void agregartipo(MouseEvent event)  {
 
         String Categoria,Descripcion;
 
@@ -118,6 +118,7 @@ public class ControllerRegiterTM implements Initializable {
                 if (rs.next()) {
                 //Alert que verifica si ya se registro la categoria
                     MostrarInValidAltert();
+                    connection.close();
 
                 }
                 else{
@@ -127,10 +128,9 @@ public class ControllerRegiterTM implements Initializable {
                         pst.setString(1, Categoria);
                         pst.setString(2, Descripcion);
                         pst.executeUpdate();
-
                         //Alert que verifica si ya se registro la categoria
                         MostrarValidAltert();
-
+                        connection.close();
                         categoria.setText("");
                         descripcion.setText("");
 
@@ -162,7 +162,7 @@ public class ControllerRegiterTM implements Initializable {
         ModelTableCategoria p=TableCategoria.getSelectionModel().getSelectedItem();
         if(p==null){
 
-            JOptionPane.showMessageDialog(null,"Escoga algo");
+            JOptionPane.showMessageDialog(null,"Escoja algo");
         }
         else {
             ConnectionMYSQL ConnectionClass = new ConnectionMYSQL();
@@ -170,7 +170,7 @@ public class ControllerRegiterTM implements Initializable {
             pst = connection.prepareStatement("delete from categoria where catId=?");
             pst.setInt(1, p.getId());
             pst.executeUpdate();
-
+            connection.close();
             MostrarValidAlertDeleted();
             MostrarCategoriaEnTabla();
             this.TableCategoria.refresh();
@@ -208,6 +208,7 @@ public class ControllerRegiterTM implements Initializable {
             pst.setString(2, Descripcion);
             pst.setInt(3, p.getId());
             pst.executeUpdate();
+            connection.close();
             MostrarValidAlertUpdate();
             categoria.setText("");
             descripcion.setText("");

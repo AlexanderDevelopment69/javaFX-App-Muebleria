@@ -72,11 +72,12 @@ PreparedStatement pst;
                 Id=rs.getInt("catId");
                 Categoria=rs.getString("catNombre");
                 Descripcion=rs.getString("descripcion");
+
                 ModelTableCategoria c=new ModelTableCategoria(Id,Categoria,Descripcion);
                 obs.add(c);
 
             }
-
+            connection.close();
         } catch (Exception ex) {
             System.out.println("" + ex);
         }
@@ -102,6 +103,7 @@ PreparedStatement pst;
                 
                 obs.add(c);
             }
+            connection.close();
         } catch (Exception ex) {
             System.out.println("" + ex);
         }

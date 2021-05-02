@@ -4,12 +4,12 @@ import Almacen.Producto.CMCategoria.ModelCategoria;
 import Almacen.Producto.CMProveedor.ModelProveedor;
 import ConnectionMySQL.ConnectionMYSQL;
 import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXDialog;
+
 import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
+
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -19,7 +19,7 @@ import javafx.scene.input.MouseEvent;
 
 
 import javax.swing.*;
-import java.io.IOException;
+
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -101,37 +101,6 @@ public class ControllerRegistrarProducto implements Initializable {
     @FXML
     private TableColumn<?, ?> tbFecha;
 
-//    @FXML
-//    private TableView<ModelTableAlmacen2> TableAlmacen2;
-
-//    @FXML
-//    private TableColumn<?, ?> tbId2;
-//    @FXML
-//    private TableColumn<?, ?> tbProducto2;
-//
-//    @FXML
-//    private TableColumn<?, ?> tbMarca2;
-//
-//    @FXML
-//    private TableColumn<?, ?> tbTipo2;
-//
-//    @FXML
-//    private TableColumn<?, ?> tbModelo2;
-//
-//    @FXML
-//    private TableColumn<?, ?> tbPlazas2;
-//
-//    @FXML
-//    private TableColumn<?, ?> tbCaracteristicas2;
-//
-//    @FXML
-//    private TableColumn<?, ?> tbPrecio2;
-//
-//    @FXML
-//    private TableColumn<?, ?> tbPrecioAdicional2;
-//
-//    @FXML
-//    private TableColumn<?, ?> tbEstado2;
 
 PreparedStatement pst;
 
@@ -176,6 +145,7 @@ PreparedStatement pst;
             pst.setString(9,Proveedor);
             pst.setString(10, Estado);
             pst.executeUpdate();
+            connection.close();
 
         } catch(SQLException ioe) {
             ioe.printStackTrace();
@@ -208,6 +178,7 @@ PreparedStatement pst;
         pst= connection.prepareStatement("delete from producto where codProducto=?");
         pst.setString(1,p.getId());
         pst.executeUpdate();
+        connection.close();
         JOptionPane.showMessageDialog(null,"Eliminado");
 
 
@@ -300,30 +271,6 @@ PreparedStatement pst;
         tbFecha.setCellValueFactory(new PropertyValueFactory<>("Fecha"));
 
 
-
-
-//        tbId2.setCellValueFactory(new PropertyValueFactory<>("Id"));
-//        tbProducto2.setCellValueFactory(new PropertyValueFactory<>("Producto"));
-//        tbMarca2.setCellValueFactory(new PropertyValueFactory<>("Marca"));
-//        tbTipo2.setCellValueFactory(new PropertyValueFactory<>("Tipo"));
-//        tbModelo2.setCellValueFactory(new PropertyValueFactory<>("Modelo"));
-//        tbPlazas2.setCellValueFactory(new PropertyValueFactory<>("plazas"));
-//        tbCaracteristicas2.setCellValueFactory(new PropertyValueFactory<>("Caracteristicas"));
-//        tbEstado2.setCellValueFactory(new PropertyValueFactory<>("Estado"));
-//        tbPrecio2.setCellValueFactory(new PropertyValueFactory<>("Precio"));
-//        tbPrecioAdicional2.setCellValueFactory(new PropertyValueFactory<>("PrecioAdicional"));
-
-//        try {
-//
-//            ModelTableAlmacen2 s=new ModelTableAlmacen2();
-//            ObservableList<ModelTableAlmacen2> items=s.getAlmacen();
-//            this.TableAlmacen2.setItems(items);
-//
-//
-//
-//        } catch (ClassNotFoundException e) {
-//            e.printStackTrace();
-//        }
 
         /*    Devoler valores de la base de datos al table    */
         MostrarProductoEnTabla();

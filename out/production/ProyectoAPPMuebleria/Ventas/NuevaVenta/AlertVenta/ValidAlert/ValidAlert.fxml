@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="30.0" style="-fx-background-color: #F7F7F7;" stylesheets="@../../../../resources/style.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventas.NuevaVenta.AlertVenta.ValidAlert.ValidAlertController">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="30.0" style="-fx-background-color: #F7F7F7;" stylesheets="@../../../../resources/style.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Ventas.NuevaVenta.AlertVenta.ValidAlert.ValidAlertController">
    <children>
       <HBox alignment="CENTER" prefHeight="169.0" prefWidth="323.0">
          <children>
@@ -23,7 +23,7 @@
             <Insets />
          </VBox.margin>
       </HBox>
-      <Label styleClass="stylefont" text="Creado correctamente">
+      <Label styleClass="stylefont" text="Venta correctamente">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
@@ -35,7 +35,7 @@
          </VBox.margin>
       </Label>
       <JFXButton onAction="#onDone" prefHeight="39.0" prefWidth="161.0" style="-fx-font-size: 16; -fx-background-color: #00F1C5;" styleClass="stylefont" text="Continuar" textFill="WHITE" />
-      <Label styleClass="stylefont" text="Proveedor creado correctamente" />
+      <Label styleClass="stylefont" text="Venta realizada correctamente" />
    </children>
    <padding>
       <Insets bottom="20.0" top="10.0" />
